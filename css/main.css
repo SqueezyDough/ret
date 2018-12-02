@@ -234,6 +234,7 @@ section.three-column article footer ul li {
 section.three-column article footer ul li img {
   width: 1em;
   height: 1em;
+  margin-bottom: -0.1rem;
 }
 
 .scroll-container > div {
@@ -330,6 +331,7 @@ section.three-column article footer ul li img {
 .scroll-container article footer ul li img {
   width: 1em;
   height: 1em;
+  margin-bottom: -0.1rem;
 }
 
 .scroll-container article p {
