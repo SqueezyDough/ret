@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-8-Copy-2" transform="translate(-295.000000, -53.000000)" fill-rule="nonzero" stroke="#68C6F0" stroke-width="2">
+            <g id="Group-14" transform="translate(296.000000, 54.000000)">
+                <circle id="Oval" cx="10" cy="5" r="2"></circle>
+                <circle id="Oval" cx="10" cy="10" r="10"></circle>
+                <path d="M5.50004029,18.6384615 C6.32979712,19.5260288 7.80707324,20 10,20 C12.1929268,20 13.6702029,19.5260288 14.4999597,18.6384615 L14.4999427,14.4999427 C14.4999427,12.014693 12.4852497,10 10,10 C7.51475026,10 5.50005728,12.014693 5.50005728,14.4999468 L5.50004029,18.6384615 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>
