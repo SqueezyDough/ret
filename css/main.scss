@@ -1,7 +1,11 @@
 @font-face{
   font-family: SourceSansPro;
   src: url('../fonts/SourceSansPro-Regular.ttf');
-  font-weught: 500;
+  font-weight: 500;
+}
+
+html{
+  height: 100%;
 }
 
 body{
@@ -9,6 +13,32 @@ body{
   background-color: rgb(245, 245, 246);
   font-family: "SourceSansPro", "Arial", sans-serif;
   color: #231f20;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main{
+  padding-bottom: 5em;
+}
+
+#footer{
+  background-color: white;
+  padding: 1.8em 1em 2em;
+  margin-top: auto;
+
+  div{
+    display: flex;
+
+    ul{
+      justify-content: center;
+      padding: 0 1.3em;
+  
+      li{
+        padding-bottom: 0.5em;
+      }
+    }
+  }
 }
 
 a{
@@ -53,30 +83,11 @@ header > nav img{
   padding: 0.7em;
 }
 
-#footer{
-  background-color: white;
-  padding: 1.8em 1em 2em;
-  margin-top: 3em;
-
-  div{
-    display: flex;
-
-    ul{
-      justify-content: center;
-      padding: 0 1.3em;
-  
-      li{
-        padding-bottom: 0.5em;
-      }
-    }
-  }
-}
-
 #toolbar{
   width: 100%; 
   background-color: white;
   font-size: 0.8em;
-  padding-top: 5px;
+  padding-top: 0.3em;
   box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
   
   ul{
@@ -97,7 +108,7 @@ header > nav img{
         ::after{
           display: block;
           height: 2px;
-          margin: 6px 0 0;
+          margin: 0.3em 0 0;
           content: '';
           border-bottom: 2px #DB3738 solid;
           width: 100%;  
@@ -105,8 +116,8 @@ header > nav img{
       }
         
       img{
-        width: 25px;
-        height: 25px;
+        width: 1.5em;
+        height: 1.5em;
       }
     }   
   } 
@@ -147,7 +158,7 @@ header > nav img{
       &::after{
         display: block;
         height: 2px;
-        margin: 6px 0 0;
+        margin: 0.3em 0 0;
         content: '';
         border-bottom: 2px #DB3738 solid;
         width: 112px;
@@ -176,7 +187,7 @@ section.three-column{
 
     img{
       width: 100%;
-      height: 220px;
+      height: 14em;
       object-fit: cover;
       border-radius: 4px 4px 0 0;
     }
@@ -193,7 +204,7 @@ section.three-column{
     header::after{
       display: block;
         height: 2px;
-        margin: 6px 0 0;
+        margin: 0.3em 0 0;
         content: '';
         border-bottom: 2px #DB3738 solid;
         width: 112px;
@@ -292,7 +303,7 @@ section.three-column{
         &::after{
           display: block;
           height: 2px;
-          margin: 6px 0 0;
+          margin: 0.3em 0 0;
           content: '';
           border-bottom: 2px #DB3738 solid;
           width: 112px;
@@ -347,7 +358,7 @@ section.three-column{
 
 .link-active::after{
   display: block;
-  width: 112px;
+  width: 9em;
   height: 2px;
   margin: 6px 0 0;
   content: '';
@@ -357,7 +368,7 @@ section.three-column{
 .link-active__menu::after{
   display: block;
   height: 2px;
-  margin: 6px 0 0;
+  margin: 0.3em 0 0;
   content: '';
   border-bottom: 2px #DB3738 solid;
   width: 100%;
