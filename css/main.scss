@@ -77,7 +77,7 @@ main>ol{
       order: 2;
     }
 
-    >div{
+    >a#older_stories{
       position: absolute;
       margin: 0 auto;
       top: 2.5em;
@@ -85,23 +85,38 @@ main>ol{
       display: flex;
       align-items: center; 
 
-      label{
+      span{
         text-align: center;
         color: white;
         margin-right: 1em;
+        display: inline-block;
       }
 
-      button{
+      div{
         border: none;
         margin:0 auto;
         border-radius: 50%;
-        width: 3em;
-        height: 3em;
+        width: 2em;
+        height: 2em;
         background-color: #FFDB00;
         background-image: url('../images/icons/arrow-bl.svg');
         background-repeat: no-repeat;
         background-position: center center;
+       
         transform: rotate(270deg);
+        transition: all .2s;
+
+        :hover{
+          background-position-y: 5%;
+        }
+      }
+
+      :hover{
+        cursor: pointer;
+
+        +div{
+          background-position: 70% center;
+        }
       }
     }
 
@@ -259,19 +274,34 @@ main>ol{
     }
   }
 
+  // older stories
   >li:not(:first-child){
     background-image: linear-gradient(rgba(35,31,32,20) 0%, rgba(0, 0, 0, 0) 40%);
 
-    ol{
-      width: 75em;
+    >ol{
+      width: 100%;
       list-style-type: none;
-      margin: 3em auto;
+      margin: 1.8em 0;
       padding: 0;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
 
-      li{
-        margin-top: 1em;
+      &::-webkit-scrollbar { 
+        display: none; 
+      }
+
+      >li:first-child{
+        margin-left: 9%;
+      }
+
+      >li:last-child{
+        margin-right: 1.8em;
+      }
+
+      >li{
+        margin: 1em 1em 0 0;
 
         h2{
           color: white;
@@ -287,6 +317,15 @@ main>ol{
             padding-top: 0.2em;
           }
         }
+      }
+
+      footer{
+        ol {
+          padding: 0;
+          li{
+            display: inline-block;
+          }
+        }       
       }
     }
   }
@@ -503,6 +542,7 @@ article.tile{
       ol{
         width: 50%;
         margin: 0 auto;
+        overflow: visible;
         
         li{
           img{

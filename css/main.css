@@ -96,7 +96,7 @@ main > ol > li:nth-child(2) {
           order: 2;
 }
 
-main > ol > li > div {
+main > ol > li > a#older_stories {
   position: absolute;
   margin: 0 auto;
   top: 2.5em;
@@ -109,24 +109,39 @@ main > ol > li > div {
           align-items: center;
 }
 
-main > ol > li > div label {
+main > ol > li > a#older_stories span {
   text-align: center;
   color: white;
   margin-right: 1em;
+  display: inline-block;
 }
 
-main > ol > li > div button {
+main > ol > li > a#older_stories div {
   border: none;
   margin: 0 auto;
   border-radius: 50%;
-  width: 3em;
-  height: 3em;
+  width: 2em;
+  height: 2em;
   background-color: #FFDB00;
   background-image: url("../images/icons/arrow-bl.svg");
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+main > ol > li > a#older_stories div :hover {
+  background-position-y: 5%;
+}
+
+main > ol > li > a#older_stories :hover {
+  cursor: pointer;
+}
+
+main > ol > li > a#older_stories :hover + div {
+  background-position: 70% center;
 }
 
 main > ol > li:first-child article:first-of-type {
@@ -301,29 +316,42 @@ main > ol > li:not(:first-child) {
   background-image: linear-gradient(#231f20 0%, rgba(0, 0, 0, 0) 40%);
 }
 
-main > ol > li:not(:first-child) ol {
-  width: 75em;
+main > ol > li:not(:first-child) > ol {
+  width: 100%;
   list-style-type: none;
-  margin: 3em auto;
+  margin: 1.8em 0;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
-main > ol > li:not(:first-child) ol li {
-  margin-top: 1em;
+main > ol > li:not(:first-child) > ol::-webkit-scrollbar {
+  display: none;
 }
 
-main > ol > li:not(:first-child) ol li h2 {
+main > ol > li:not(:first-child) > ol > li:first-child {
+  margin-left: 9%;
+}
+
+main > ol > li:not(:first-child) > ol > li:last-child {
+  margin-right: 1.8em;
+}
+
+main > ol > li:not(:first-child) > ol > li {
+  margin: 1em 1em 0 0;
+}
+
+main > ol > li:not(:first-child) > ol > li h2 {
   color: white;
   font-size: 1.2em;
 }
 
-main > ol > li:not(:first-child) ol li h2::after {
+main > ol > li:not(:first-child) > ol > li h2::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 0;
@@ -331,6 +359,14 @@ main > ol > li:not(:first-child) ol li h2::after {
   border-bottom: 2px #DB3738 solid;
   width: 112px;
   padding-top: 0.2em;
+}
+
+main > ol > li:not(:first-child) > ol footer ol {
+  padding: 0;
+}
+
+main > ol > li:not(:first-child) > ol footer ol li {
+  display: inline-block;
 }
 
 section, footer > h4, footer > div {
@@ -553,6 +589,7 @@ article.tile > a footer span {
 article.tile > a footer ol {
   width: 50%;
   margin: 0 auto;
+  overflow: visible;
 }
 
 article.tile > a footer ol li img {
