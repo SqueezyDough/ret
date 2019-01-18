@@ -33,6 +33,122 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 
+body > header > nav {
+  width: 100%;
+  font-size: 0.8em;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+          box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+  position: fixed;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  z-index: 998;
+}
+
+body > header > nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+body > header > nav ul > li:first-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+}
+
+body > header > nav ul > li:first-child div {
+  padding: 2.1em 0 0.8em;
+}
+
+body > header > nav ul > li:first-child div img {
+  display: block;
+  height: 1.7em;
+  width: initial;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+body > header > nav ul > li:not(:first-child) {
+  list-style-type: none;
+  display: block;
+  width: 25%;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 999;
+  padding: 0.8em 0;
+  margin-top: -10em;
+  background: white;
+  -webkit-animation: show 1s ease-out forwards;
+          animation: show 1s ease-out forwards;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+body > header > nav ul > li:not(:first-child) a {
+  display: block;
+  padding: 2.5em 0 0;
+  background-position: center top;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+body > header > nav ul > li:not(:first-child) a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body > header > nav ul > li:not(:first-child) img {
+  width: 2em;
+  height: 2em;
+}
+
+body > header > nav ul li:nth-child(2) a {
+  background-image: url("../images/icons/book.svg");
+}
+
+body > header > nav ul li:nth-child(3) a {
+  background-image: url("../images/icons/search.svg");
+}
+
+body > header > nav ul li:nth-child(4) a {
+  background-image: url("../images/icons/read.svg");
+}
+
+body > header > nav ul li:nth-child(5) a {
+  background-image: url("../images/icons/account.svg");
+}
+
+body > footer {
+  margin-top: 6em;
+  background-color: white;
+  padding: 1.8em 1em 2em;
+}
+
+body > footer div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body > footer div ul {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 1.3em;
+}
+
+body > footer div ul li {
+  padding-bottom: 0.5em;
+}
+
 .align-icon {
   margin-bottom: -0.1em;
 }
@@ -41,13 +157,14 @@ h1, h2, h3, h4 {
   margin-bottom: -0.2em;
 }
 
-main > ol {
+main > ul {
   position: relative;
   padding: 0;
+  margin: 0;
   list-style-type: none;
-  margin-top: 6em;
-  width: 100vw;
-  height: 75vh;
+  width: 100%;
+  height: 95vh;
+  overflow-y: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,19 +172,30 @@ main > ol {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  overflow-y: auto;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
   -webkit-overflow-scrolling: touch;
   background: #231f20;
   -webkit-animation: backdrop 15s ease-in-out forwards infinite;
           animation: backdrop 15s ease-in-out forwards infinite;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
-main > ol h1 {
+main > ul::after {
   position: absolute;
-  top: 10em;
+  content: "";
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30em;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
+  background: linear-gradient(rgba(0, 0, 0, 0), black);
+  z-index: 0;
+}
+
+main > ul h1 {
+  position: absolute;
+  top: 25%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
@@ -77,30 +205,18 @@ main > ol h1 {
   font-size: 1.2em;
 }
 
-main > ol > li {
+main > ul > li {
   position: relative;
   width: 100%;
-  height: 75vh;
-  scroll-snap-align: start;
+  height: 95vh;
 }
 
-main > ol > li:nth-child(1) {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-main > ol > li:nth-child(2) {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-}
-
-main > ol > li > a#older_stories {
+main > ul > li > a#older_stories {
   position: absolute;
-  margin: 0 auto;
-  top: 2.5em;
-  left: 79vw;
+  top: 7.5em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,69 +225,68 @@ main > ol > li > a#older_stories {
           align-items: center;
 }
 
-main > ol > li > a#older_stories span {
+main > ul > li > a#older_stories span {
   text-align: center;
   color: white;
   margin-right: 1em;
-  display: inline-block;
+  display: none;
 }
 
-main > ol > li > a#older_stories div {
+main > ul > li > a#older_stories div {
   border: none;
   margin: 0 auto;
   border-radius: 50%;
   width: 2em;
   height: 2em;
-  background-color: #FFDB00;
+  background-color: #FFDB00BB;
   background-image: url("../images/icons/arrow-bl.svg");
   background-repeat: no-repeat;
   background-position: center center;
+  z-index: 99;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 
-main > ol > li > a#older_stories div :hover {
+main > ul > li > a#older_stories div :hover {
   background-position-y: 5%;
 }
 
-main > ol > li > a#older_stories :hover {
+main > ul > li > a#older_stories :hover {
   cursor: pointer;
 }
 
-main > ol > li > a#older_stories :hover + div {
+main > ul > li > a#older_stories :hover + div {
   background-position: 70% center;
 }
 
-main > ol > li:first-child article:first-of-type {
+main > ul > li:first-child article {
   position: relative;
-  min-height: 37em;
+  height: 85vh;
 }
 
-main > ol > li:first-child article:first-of-type header {
+main > ul > li:first-child article header {
   position: absolute;
   text-align: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(black));
-  background-image: linear-gradient(rgba(0, 0, 0, 0), black);
   width: 100%;
-  bottom: 0;
-  padding: 1em 0 10em;
+  top: 30%;
+  padding: 1em 0 1em;
   z-index: 1;
 }
 
-main > ol > li:first-child article:first-of-type header h2 {
+main > ul > li:first-child article header h2 {
   text-transform: uppercase;
   color: white;
   font-size: 3em;
   letter-spacing: 0.3em;
 }
 
-main > ol > li:first-child article:first-of-type header h2 span {
+main > ul > li:first-child article header h2 span {
   display: inline-block;
 }
 
-main > ol > li:first-child article:first-of-type header h2 span:nth-of-type(2) {
+main > ul > li:first-child article header h2 span:nth-of-type(2) {
   width: 0.75em;
   height: 0.75em;
   margin: 0 0.15em;
@@ -182,11 +297,11 @@ main > ol > li:first-child article:first-of-type header h2 span:nth-of-type(2) {
   animation: transform 15s ease-in-out alternate-reverse infinite;
 }
 
-main > ol > li:first-child article:first-of-type header p {
+main > ul > li:first-child article header p {
   color: #68C6F0;
 }
 
-main > ol > li:first-child article:first-of-type header a {
+main > ul > li:first-child article header a {
   margin-top: 0.5em;
   display: inline-block;
   color: #00477f;
@@ -201,20 +316,20 @@ main > ol > li:first-child article:first-of-type header a {
   transition: all .2s;
 }
 
-main > ol > li:first-child article:first-of-type header a:hover {
+main > ul > li:first-child article header a:hover {
   background-color: #D4EFFC;
   background-position: 92% center;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview {
+main > ul > li:first-child article div#story-preview {
   position: absolute;
   z-index: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 85vh;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div.bar {
+main > ul > li:first-child article div#story-preview div.bar {
   position: absolute;
   background: white;
   width: 0;
@@ -225,13 +340,13 @@ main > ol > li:first-child article:first-of-type div#story-preview div.bar {
           animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b1 {
+main > ul > li:first-child article div#story-preview div#b1 {
   top: 10%;
   left: 20%;
   animation-direction: alternate-reverse;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b2 {
+main > ul > li:first-child article div#story-preview div#b2 {
   top: 10%;
   left: 40%;
   -webkit-animation-direction: alternate;
@@ -240,7 +355,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b2 {
           animation-delay: 2s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b3 {
+main > ul > li:first-child article div#story-preview div#b3 {
   top: 10%;
   left: 60%;
   animation-direction: reverse;
@@ -248,7 +363,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b3 {
           animation-delay: 1.5s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b4 {
+main > ul > li:first-child article div#story-preview div#b4 {
   top: 10%;
   left: 80%;
   -webkit-animation-direction: normal;
@@ -257,7 +372,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b4 {
           animation-delay: 2s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b5 {
+main > ul > li:first-child article div#story-preview div#b5 {
   top: 70%;
   left: 20%;
   animation-direction: reverse;
@@ -265,7 +380,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b5 {
           animation-delay: 1s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b6 {
+main > ul > li:first-child article div#story-preview div#b6 {
   top: 70%;
   left: 40%;
   animation-direction: alternate-reverse;
@@ -273,7 +388,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b6 {
           animation-delay: 2s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b7 {
+main > ul > li:first-child article div#story-preview div#b7 {
   top: 70%;
   left: 60%;
   -webkit-transform: rotate(100deg);
@@ -282,7 +397,7 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b7 {
           animation-direction: normal;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview div#b8 {
+main > ul > li:first-child article div#story-preview div#b8 {
   top: 70%;
   left: 80%;
   -webkit-animation-direction: alternate;
@@ -291,35 +406,15 @@ main > ol > li:first-child article:first-of-type div#story-preview div#b8 {
           animation-delay: 1.5s;
 }
 
-main > ol > li:first-child article:first-of-type div#story-preview h1 {
-  color: white;
-}
-
-main > ol > li:first-child article:first-of-type div#story-preview h1 > span {
-  display: block;
-  margin-top: 3em;
-}
-
-main > ol > li:first-child article:first-of-type div#story-preview h1 > span::after {
-  display: block;
-  height: 2px;
-  margin: 0.3em 0 0;
-  content: '';
-  border-bottom: 2px #DB3738 solid;
-  width: 112px;
-  padding-top: 0.2em;
-  margin: 0 auto;
-}
-
-main > ol > li:not(:first-child) {
+main > ul > li:last-child {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#231f20), color-stop(40%, rgba(0, 0, 0, 0)));
   background-image: linear-gradient(#231f20 0%, rgba(0, 0, 0, 0) 40%);
 }
 
-main > ol > li:not(:first-child) > ol {
+main > ul > li:last-child > ol {
   width: 100%;
+  height: 52vh;
   list-style-type: none;
-  margin: 1.8em 0;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -330,28 +425,28 @@ main > ol > li:not(:first-child) > ol {
   -webkit-overflow-scrolling: touch;
 }
 
-main > ol > li:not(:first-child) > ol::-webkit-scrollbar {
+main > ul > li:last-child > ol::-webkit-scrollbar {
   display: none;
 }
 
-main > ol > li:not(:first-child) > ol > li:first-child {
+main > ul > li:last-child > ol > li:first-child {
   margin-left: 9%;
 }
 
-main > ol > li:not(:first-child) > ol > li:last-child {
+main > ul > li:last-child > ol > li:last-child {
   margin-right: 1.8em;
 }
 
-main > ol > li:not(:first-child) > ol > li {
+main > ul > li:last-child > ol > li {
   margin: 1em 1em 0 0;
 }
 
-main > ol > li:not(:first-child) > ol > li h2 {
+main > ul > li:last-child > ol > li h2 {
   color: white;
   font-size: 1.2em;
 }
 
-main > ol > li:not(:first-child) > ol > li h2::after {
+main > ul > li:last-child > ol > li h2::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 0;
@@ -361,31 +456,20 @@ main > ol > li:not(:first-child) > ol > li h2::after {
   padding-top: 0.2em;
 }
 
-main > ol > li:not(:first-child) > ol footer ol {
+main > ul > li:last-child > ol footer ol {
   padding: 0;
 }
 
-main > ol > li:not(:first-child) > ol footer ol li {
+main > ul > li:last-child > ol footer ol li {
   display: inline-block;
 }
 
-section, footer > h4, footer > div {
-  width: 75em;
-  margin: 0 auto;
-}
-
-section:first-of-type {
+section {
   position: relative;
-  margin-top: -5.1em;
-  padding: 1.8em 0.8em 0.8em;
-  z-index: 2;
-  border-radius: 4px;
-  background-color: #00477f;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  width: 100%;
 }
 
-section:first-of-type ol {
+section ol {
   list-style-type: none;
   margin: 1em 0;
   padding: 0;
@@ -397,66 +481,85 @@ section:first-of-type ol {
   -webkit-overflow-scrolling: touch;
 }
 
-section:first-of-type ol li {
+section ol::-webkit-scrollbar {
+  display: none;
+}
+
+section ol li {
   margin-right: 0.8em;
 }
 
-section:first-of-type h2 {
-  font-size: 1.2em;
-  margin: 0;
-  color: white;
-  border-radius: 4px 4px 0 0;
+section ol li:first-child {
+  margin-left: 1em;
 }
 
-section:first-of-type h2::after {
+section ol li:last-child {
+  margin-right: 1em;
+}
+
+section h2 {
+  font-size: 1.2em;
+  border-radius: 4px 4px 0 0;
+  margin: 1.8em 1em 0.8em;
+  margin-top: 1.8em;
+}
+
+section h2::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 1em;
   content: '';
-  border-bottom: 2px #DB3738 solid;
   width: 112px;
   padding-top: 0.2em;
 }
 
-section:first-of-type article {
+section article {
   position: relative;
-  background-color: white;
   border-radius: 4px;
-  width: 15em;
+  width: 18rem;
 }
 
-section:first-of-type article img {
-  height: 5em;
+section article a > img {
+  height: 10em;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 4px;
 }
 
-section:first-of-type article header {
+section article header {
   padding: 1em 0.8em;
+  position: absolute;
 }
 
-section:first-of-type article header h3 {
+section article header h3 {
   margin: 0;
   max-width: 15em;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: white;
 }
 
-section:nth-of-type(2) > h2 {
-  font-size: 1.2em;
-  margin-top: 1.8em;
+section:first-of-type {
+  margin-top: -8em;
+  z-index: 2;
 }
 
-section:nth-of-type(2) > h2::after {
-  display: block;
-  height: 2px;
-  margin: 0.3em 0 0;
-  content: '';
+section:first-of-type h2 {
+  color: white;
+}
+
+section:first-of-type h2::after {
+  border-bottom: 2px #DB3738 solid;
+}
+
+section:nth-of-type(2) h2 {
+  color: #00477f;
+}
+
+section:nth-of-type(2) h2::after {
   border-bottom: 2px #68C6F0 solid;
-  width: 112px;
-  padding-top: 0.2em;
 }
 
 section:nth-of-type(2) ol {
@@ -473,10 +576,6 @@ section:nth-of-type(2) ol li ol {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-}
-
-section:last-of-type {
-  margin-bottom: 6em;
 }
 
 .nav-up {
@@ -515,18 +614,6 @@ article.tile > a > img {
   transition: .2s;
 }
 
-article.tile > a::before {
-  position: absolute;
-  content: "";
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 22em;
-  background: linear-gradient(150deg, #009ddb, rgba(0, 71, 127, 0));
-  z-index: 1;
-}
-
 article.tile > a::after {
   position: absolute;
   content: "";
@@ -535,7 +622,8 @@ article.tile > a::after {
   left: 0;
   width: 100%;
   height: 22em;
-  background: linear-gradient(330deg, #009ddb, rgba(0, 71, 127, 0));
+  background: -webkit-gradient(linear, left top, left bottom, from(#009ddb), to(rgba(0, 71, 127, 0)));
+  background: linear-gradient(#009ddb, rgba(0, 71, 127, 0));
   z-index: 0;
 }
 
@@ -587,9 +675,12 @@ article.tile > a footer span {
 }
 
 article.tile > a footer ol {
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
   overflow: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 article.tile > a footer ol li img {
@@ -629,18 +720,6 @@ article.tile--compact > a > img {
   height: 10em;
 }
 
-article.tile--compact > a::before {
-  position: absolute;
-  content: "";
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10em;
-  background: linear-gradient(330deg, #009ddb, rgba(0, 71, 127, 0));
-  z-index: 1;
-}
-
 article.tile--compact > a::after {
   position: absolute;
   content: "";
@@ -649,31 +728,9 @@ article.tile--compact > a::after {
   left: 0;
   width: 100%;
   height: 10em;
-  background: linear-gradient(150deg, #009ddb, rgba(0, 71, 127, 0));
+  background: -webkit-gradient(linear, left top, left bottom, from(#009ddb), to(rgba(0, 71, 127, 0)));
+  background: linear-gradient(#009ddb, rgba(0, 71, 127, 0));
   z-index: 0;
-}
-
-footer#footer {
-  background-color: white;
-  padding: 1.8em 1em 2em;
-  margin-top: auto;
-}
-
-footer#footer div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-footer#footer div ul {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0 1.3em;
-}
-
-footer#footer div ul li {
-  padding-bottom: 0.5em;
 }
 
 @media (min-width: 40em) {
@@ -757,7 +814,7 @@ footer#footer div ul li {
     margin-top: 4em;
   }
   main ol h1 {
-    top: 9em;
+    top: 5em;
   }
 }
 
@@ -796,6 +853,30 @@ footer#footer div ul li {
   100% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    margin-top: -10em;
+  }
+  50% {
+    margin-top: 0.5em;
+  }
+  100% {
+    margin-top: 0em;
+  }
+}
+
+@keyframes show {
+  0% {
+    margin-top: -10em;
+  }
+  50% {
+    margin-top: 0.5em;
+  }
+  100% {
+    margin-top: 0em;
   }
 }
 
@@ -842,7 +923,7 @@ footer#footer div ul li {
   }
   100% {
     width: 0.3em;
-    height: 6em;
+    height: 5em;
   }
 }
 
@@ -857,7 +938,7 @@ footer#footer div ul li {
   }
   100% {
     width: 0.3em;
-    height: 6em;
+    height: 5em;
   }
 }
 

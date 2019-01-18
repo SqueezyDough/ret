@@ -28,6 +28,106 @@ h1, h2, h3, h4{
   font-weight: 500;
 }
 
+//header
+body>header>nav{
+  width: 100%; 
+  font-size: 0.8em;
+  box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
+  position: fixed;
+  transition: all 0.2s;
+  z-index: 998;
+  
+  ul{
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+
+    >li:first-child{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 999;
+
+      div{
+        padding: 2.1em 0 0.8em;
+
+        img{
+          display: block;
+          height: 1.7em;
+          width: initial;
+          z-index: 1;
+          margin: 0 auto;
+        }
+      } 
+    }
+
+    >li:not(:first-child) {
+      list-style-type: none;
+      display: block;
+      width: 25%;
+      text-align: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 0.8em 0;   
+      margin-top: -10em;    
+      background: white;
+      animation: show 1s ease-out forwards;
+      animation-delay: 2s;
+
+      a{
+        display: block;
+        padding: 2.5em 0 0;
+        background-position: center top;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      a:hover{
+        transform: scale(1.1);
+      }
+  
+      img{
+        width: 2em;
+        height: 2em;
+      }
+    }
+    
+    li:nth-child(2) a{
+      background-image: url('../images/icons/book.svg');     
+    }
+    li:nth-child(3) a{
+      background-image: url('../images/icons/search.svg');
+    }
+    li:nth-child(4) a{
+      background-image: url('../images/icons/read.svg');
+    }
+    li:nth-child(5) a{
+      background-image: url('../images/icons/account.svg');
+    }
+  } 
+}
+
+body>footer{
+  margin-top: 6em;
+  background-color: white;
+  padding: 1.8em 1em 2em;
+
+  div{
+    display: flex;
+
+    ul{
+      justify-content: center;
+      padding: 0 1.3em;
+  
+      li{
+        padding-bottom: 0.5em;
+      }
+    }
+  }
+}
+
 .align-icon{
   margin-bottom: -0.1em;
 }
@@ -36,25 +136,37 @@ h1, h2, h3, h4{
   margin-bottom: -0.2em;
 }
 
-main>ol{
+main>ul{
   position: relative;
   padding: 0;
+  margin: 0;
   list-style-type: none;
-  margin-top: 6em;
-  width: 100vw;
-  height: 75vh;  
+  width: 100%;
+  height: 95vh; 
+  overflow-y: hidden; 
   display: flex;
   flex-direction: column-reverse;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
   -webkit-overflow-scrolling: touch;
   background: #231f20;
   animation: backdrop 15s ease-in-out forwards infinite;
+  transition: .2s;
+
+  // gradient
+  &::after{
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30em;
+    background: linear-gradient( rgba(0,0,0,0) ,rgba(0,0,0,100));
+    z-index: 0;
+  }
 
   h1{
     position: absolute;
-    top: 10em;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 2;
@@ -66,22 +178,14 @@ main>ol{
   >li{
     position: relative;
     width: 100%;
-    height: 75vh;
-    scroll-snap-align: start;
+    height: 95vh;
 
-    &:nth-child(1){
-      order: 1;
-    }
-
-    &:nth-child(2){
-      order: 2;
-    }
-
+    // btn older stories
     >a#older_stories{
       position: absolute;
-      margin: 0 auto;
-      top: 2.5em;
-      left: 79vw;
+      top: 7.5em;
+      left: 50%;
+      transform: translate(-50%, 0);
       display: flex;
       align-items: center; 
 
@@ -89,7 +193,7 @@ main>ol{
         text-align: center;
         color: white;
         margin-right: 1em;
-        display: inline-block;
+        display: none;
       }
 
       div{
@@ -98,10 +202,11 @@ main>ol{
         border-radius: 50%;
         width: 2em;
         height: 2em;
-        background-color: #FFDB00;
+        background-color: #FFDB00BB;
         background-image: url('../images/icons/arrow-bl.svg');
         background-repeat: no-repeat;
         background-position: center center;
+        z-index: 99;
        
         transform: rotate(270deg);
         transition: all .2s;
@@ -120,18 +225,17 @@ main>ol{
       }
     }
 
-
-    &:first-child article:first-of-type{
+    // preview
+    &:first-child article{
       position: relative;
-      min-height: 37em;
+      height: 85vh;
   
       header{
         position: absolute;
         text-align: center;
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0, 0, 0, 100));
         width: 100%;
-        bottom: 0;
-        padding: 1em 0 10em;
+        top: 30%;
+        padding: 1em 0 1em;
         z-index: 1;
   
         h2{
@@ -185,7 +289,7 @@ main>ol{
         z-index: 0;
         top: 0;
         width: 100%;
-        height: 100%;
+        height: 85vh;
   
         div.bar{
           position: absolute; 
@@ -250,38 +354,18 @@ main>ol{
           animation-direction: alternate;
           animation-delay: 1.5s;
         } 
-  
-        h1{
-          color: white;
-      
-          > span{
-            display: block;
-            margin-top: 3em;
-          
-            &::after{
-              display: block;
-              height: 2px;
-              margin: 0.3em 0 0;
-              content: '';
-              border-bottom: 2px #DB3738 solid;
-              width: 112px;
-              padding-top: 0.2em;
-              margin: 0 auto;
-            }
-          }
-        }
       } 
     }
   }
 
   // older stories
-  >li:not(:first-child){
+  >li:last-child{
     background-image: linear-gradient(rgba(35,31,32,20) 0%, rgba(0, 0, 0, 0) 40%);
 
     >ol{
       width: 100%;
+      height: 52vh;
       list-style-type: none;
-      margin: 1.8em 0;
       padding: 0;
       display: flex;
       flex-wrap: nowrap;
@@ -331,19 +415,9 @@ main>ol{
   }
 } 
 
-section, footer>h4, footer>div{
-  width: 75em;
-  margin: 0 auto;
-}
-
-section:first-of-type{
+section{
   position: relative;
-  margin-top: -5.1em;
-  padding: 1.8em 0.8em 0.8em;
-  z-index: 2;
-  border-radius: 4px;
-  background-color: #00477f;
-  box-sizing: border-box;
+  width: 100%;
 
   ol{
     list-style-type: none;
@@ -354,23 +428,34 @@ section:first-of-type{
     display: flex;
     -webkit-overflow-scrolling: touch;
 
+    &::-webkit-scrollbar { 
+      display: none; 
+    }
+
     li{
       margin-right: 0.8em;
+
+      &:first-child{
+        margin-left: 1em;
+      }
+
+      &:last-child{
+        margin-right: 1em;
+      }
     }
   }
 
   h2{
     font-size: 1.2em;
-    margin: 0;
-    color: white;
     border-radius: 4px 4px 0 0;
+    margin: 1.8em 1em 0.8em;
+    margin-top: 1.8em;
 
     &::after{
       display: block;
       height: 2px;
       margin: 0.3em 0 1em;
       content: '';
-      border-bottom: 2px #DB3738 solid;
       width: 112px;
       padding-top: 0.2em;
     }
@@ -378,18 +463,19 @@ section:first-of-type{
 
   article{
     position: relative;
-    background-color: white;
     border-radius: 4px;
-    width: 15em;
+    width: 18rem;
 
-    img{
-      height: 5em;
+    a>img{
+      height: 10em;
       width: 100%;
       object-fit: cover;
+      border-radius: 4px;
     }
 
     header{
       padding: 1em 0.8em;
+      position: absolute;
 
       h3{
         margin: 0;
@@ -397,24 +483,34 @@ section:first-of-type{
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        color: white;
       }
     }
   }
 }
 
-section:nth-of-type(2){
-  >h2{
-    font-size: 1.2em;
-    margin-top: 1.8em;
+// history
+section:first-of-type{
+  margin-top: -8em;
+  z-index: 2;
+
+  h2{
+    color: white;
 
     &::after{
-      display: block;
-      height: 2px;
-      margin: 0.3em 0 0;
-      content: '';
+      border-bottom: 2px #DB3738 solid;
+    }
+  }
+}
+
+
+// veelbesproken
+section:nth-of-type(2){
+  h2{
+    color: #00477f;
+
+    &::after{
       border-bottom: 2px #68C6F0 solid;
-      width: 112px;
-      padding-top: 0.2em;
     }
   }
 
@@ -431,10 +527,6 @@ section:nth-of-type(2){
       }
     } 
   } 
-}
-
-section:last-of-type{
-  margin-bottom: 6em;
 }
 
 .nav-up{
@@ -469,18 +561,6 @@ article.tile{
       transition: .2s;
     }
 
-    &::before{
-      position: absolute;
-      content: "";
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 22em;
-      background: linear-gradient(150deg, rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
-      z-index: 1;
-    }
-
     &::after{
       position: absolute;
       content: "";
@@ -489,7 +569,7 @@ article.tile{
       left: 0;
       width: 100%;
       height: 22em;
-      background: linear-gradient(330deg, rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
+      background: linear-gradient(rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
       z-index: 0;
     }
 
@@ -540,9 +620,10 @@ article.tile{
       }
 
       ol{
-        width: 50%;
+        width: 75%;
         margin: 0 auto;
         overflow: visible;
+        display: flex;
         
         li{
           img{
@@ -585,18 +666,6 @@ article.tile--compact{
       height: 10em;
     }
 
-    &::before{
-      position: absolute;
-      content: "";
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10em;
-      background: linear-gradient(330deg, rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
-      z-index: 1;
-    }
-
     &::after{
       position: absolute;
       content: "";
@@ -605,28 +674,8 @@ article.tile--compact{
       left: 0;
       width: 100%;
       height: 10em;
-      background: linear-gradient(150deg, rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
+      background: linear-gradient(rgba(0, 157, 219, 100), rgba(0, 71, 127, 0));
       z-index: 0;
-    }
-
-  }
-}
-
-footer#footer{
-  background-color: white;
-  padding: 1.8em 1em 2em;
-  margin-top: auto;
-
-  div{
-    display: flex;
-
-    ul{
-      justify-content: center;
-      padding: 0 1.3em;
-  
-      li{
-        padding-bottom: 0.5em;
-      }
     }
   }
 }
@@ -714,7 +763,7 @@ footer#footer{
     margin-top: 4em;
 
     h1{
-      top: 9em;
+      top: 5em;
     } 
   }
 }
@@ -733,6 +782,19 @@ footer#footer{
     transform: rotate(0deg);
   }
 }
+
+@keyframes show{
+  0% { 
+    margin-top: -10em;
+  }
+  50% { 
+    margin-top: 0.5em;
+  }
+  100% { 
+    margin-top: 0em;
+  }
+}
+
 
 @keyframes backdrop {
   0% { 
@@ -762,7 +824,7 @@ footer#footer{
   }
   100% { 
     width: 0.3em;
-    height: 6em;
+    height: 5em;
   }
 }
 
