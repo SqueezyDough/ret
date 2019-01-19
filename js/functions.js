@@ -1,18 +1,21 @@
-const btn_stories = document.querySelector('main ul li:nth-of-type(2) a');
-var list_position = "newest";
+const btn_older = document.querySelector('main ul li:nth-of-type(2) button:first-child');
+const btn_newest = document.querySelector('main ul li:nth-of-type(2) button:last-child');
 
-btn_stories.addEventListener("click", function(){
-
-  if (list_position == "newest"){
-    this.href = "#list-stories";
-    this.classList.add('rotate');
-    list_position = "older";
-    console.log("change old");
-  }
-  else if( list_position == "older"){
-    this.href = "#preview_anker";
-    this.classList.remove('rotate');
-    list_position = "newest";
-    console.log("change new");
-  }
+btn_older.addEventListener("click", function(){
+  document.getElementById('list-stories').scrollIntoView({
+    behavior: 'smooth'
+  });
+ 
+  this.classList.add('text-active');
+  btn_newest.classList.remove('text-active');
 });
+
+btn_newest.addEventListener("click", function(){
+  document.getElementById('story-preview').scrollIntoView({
+    behavior: 'smooth'
+  });
+ 
+  this.classList.add('text-active');
+  btn_older.classList.remove('text-active');
+});
+
