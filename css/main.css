@@ -33,6 +33,17 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 
+ul, ol {
+  list-style-type: none;
+}
+
+.rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: .6s ease-in-out;
+  transition: .6s ease-in-out;
+}
+
 body > header > nav {
   width: 100%;
   font-size: 0.8em;
@@ -41,7 +52,7 @@ body > header > nav {
   position: fixed;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  z-index: 998;
+  z-index: 999;
 }
 
 body > header > nav ul {
@@ -50,7 +61,6 @@ body > header > nav ul {
   display: flex;
   margin: 0 auto;
   padding: 0;
-  list-style-type: none;
 }
 
 body > header > nav ul > li:first-child {
@@ -61,7 +71,7 @@ body > header > nav ul > li:first-child {
 }
 
 body > header > nav ul > li:first-child div {
-  padding: 2.1em 0 0.8em;
+  padding: 2.1em 0 1em;
 }
 
 body > header > nav ul > li:first-child div img {
@@ -73,7 +83,6 @@ body > header > nav ul > li:first-child div img {
 }
 
 body > header > nav ul > li:not(:first-child) {
-  list-style-type: none;
   display: block;
   width: 25%;
   text-align: center;
@@ -81,18 +90,18 @@ body > header > nav ul > li:not(:first-child) {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 999;
-  padding: 0.8em 0;
+  padding: 1em 0;
   margin-top: -10em;
   background: white;
   -webkit-animation: show 1s ease-out forwards;
           animation: show 1s ease-out forwards;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 body > header > nav ul > li:not(:first-child) a {
   display: block;
-  padding: 2.5em 0 0;
+  padding: 2.2em 0 0;
   background-position: center top;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -161,10 +170,10 @@ main > ul {
   position: relative;
   padding: 0;
   margin: 0;
-  list-style-type: none;
   width: 100%;
   height: 95vh;
   overflow-y: hidden;
+  scroll-behavior: smooth;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -195,7 +204,7 @@ main > ul::after {
 
 main > ul h1 {
   position: absolute;
-  top: 25%;
+  top: 0;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
@@ -205,104 +214,62 @@ main > ul h1 {
   font-size: 1.2em;
 }
 
-main > ul > li {
+main > ul > li:first-child {
   position: relative;
   width: 100%;
-  height: 95vh;
 }
 
-main > ul > li > a#older_stories {
+main > ul > li:first-child > div#preview_anker {
   position: absolute;
-  top: 7.5em;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 30px;
+  height: 30px;
+  color: red;
+  top: -12em;
 }
 
-main > ul > li > a#older_stories span {
-  text-align: center;
-  color: white;
-  margin-right: 1em;
-  display: none;
-}
-
-main > ul > li > a#older_stories div {
-  border: none;
-  margin: 0 auto;
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
-  background-color: #FFDB00BB;
-  background-image: url("../images/icons/arrow-bl.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 99;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-  -webkit-transition: all .2s;
-  transition: all .2s;
-}
-
-main > ul > li > a#older_stories div :hover {
-  background-position-y: 5%;
-}
-
-main > ul > li > a#older_stories :hover {
-  cursor: pointer;
-}
-
-main > ul > li > a#older_stories :hover + div {
-  background-position: 70% center;
-}
-
-main > ul > li:first-child article {
+main > ul > li:first-child:first-child article {
   position: relative;
-  height: 85vh;
+  height: 66vh;
 }
 
-main > ul > li:first-child article header {
+main > ul > li:first-child:first-child article header {
   position: absolute;
   text-align: center;
   width: 100%;
-  top: 30%;
+  top: 5%;
   padding: 1em 0 1em;
   z-index: 1;
 }
 
-main > ul > li:first-child article header h2 {
+main > ul > li:first-child:first-child article header h2 {
   text-transform: uppercase;
   color: white;
   font-size: 3em;
   letter-spacing: 0.3em;
 }
 
-main > ul > li:first-child article header h2 span {
+main > ul > li:first-child:first-child article header h2 span {
   display: inline-block;
 }
 
-main > ul > li:first-child article header h2 span:nth-of-type(2) {
+main > ul > li:first-child:first-child article header h2 span:nth-of-type(2) {
   width: 0.75em;
   height: 0.75em;
   margin: 0 0.15em;
   background: white;
+  color: transparent;
   border-radius: 50%;
-  -webkit-transform: translate(-25%, 0);
-          transform: translate(-25%, 0);
+  -webkit-transform: translate(-22%, 35%);
+          transform: translate(-22%, 35%);
   animation: transform 15s ease-in-out alternate-reverse infinite;
 }
 
-main > ul > li:first-child article header p {
+main > ul > li:first-child:first-child article header p {
   color: #68C6F0;
 }
 
-main > ul > li:first-child article header a {
-  margin-top: 0.5em;
+main > ul > li:first-child:first-child article header a {
+  margin-top: 1em;
   display: inline-block;
   color: #00477f;
   padding: 10px 50px 10px 20px;
@@ -316,20 +283,20 @@ main > ul > li:first-child article header a {
   transition: all .2s;
 }
 
-main > ul > li:first-child article header a:hover {
+main > ul > li:first-child:first-child article header a:hover {
   background-color: #D4EFFC;
   background-position: 92% center;
 }
 
-main > ul > li:first-child article div#story-preview {
+main > ul > li:first-child:first-child article div#story-preview {
   position: absolute;
   z-index: 0;
-  top: 0;
+  top: -8.8em;
   width: 100%;
-  height: 85vh;
+  height: 95vh;
 }
 
-main > ul > li:first-child article div#story-preview div.bar {
+main > ul > li:first-child:first-child article div#story-preview div.bar {
   position: absolute;
   background: white;
   width: 0;
@@ -340,13 +307,13 @@ main > ul > li:first-child article div#story-preview div.bar {
           animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
 }
 
-main > ul > li:first-child article div#story-preview div#b1 {
+main > ul > li:first-child:first-child article div#story-preview div#b1 {
   top: 10%;
   left: 20%;
   animation-direction: alternate-reverse;
 }
 
-main > ul > li:first-child article div#story-preview div#b2 {
+main > ul > li:first-child:first-child article div#story-preview div#b2 {
   top: 10%;
   left: 40%;
   -webkit-animation-direction: alternate;
@@ -355,7 +322,7 @@ main > ul > li:first-child article div#story-preview div#b2 {
           animation-delay: 2s;
 }
 
-main > ul > li:first-child article div#story-preview div#b3 {
+main > ul > li:first-child:first-child article div#story-preview div#b3 {
   top: 10%;
   left: 60%;
   animation-direction: reverse;
@@ -363,7 +330,7 @@ main > ul > li:first-child article div#story-preview div#b3 {
           animation-delay: 1.5s;
 }
 
-main > ul > li:first-child article div#story-preview div#b4 {
+main > ul > li:first-child:first-child article div#story-preview div#b4 {
   top: 10%;
   left: 80%;
   -webkit-animation-direction: normal;
@@ -372,7 +339,7 @@ main > ul > li:first-child article div#story-preview div#b4 {
           animation-delay: 2s;
 }
 
-main > ul > li:first-child article div#story-preview div#b5 {
+main > ul > li:first-child:first-child article div#story-preview div#b5 {
   top: 70%;
   left: 20%;
   animation-direction: reverse;
@@ -380,7 +347,7 @@ main > ul > li:first-child article div#story-preview div#b5 {
           animation-delay: 1s;
 }
 
-main > ul > li:first-child article div#story-preview div#b6 {
+main > ul > li:first-child:first-child article div#story-preview div#b6 {
   top: 70%;
   left: 40%;
   animation-direction: alternate-reverse;
@@ -388,7 +355,7 @@ main > ul > li:first-child article div#story-preview div#b6 {
           animation-delay: 2s;
 }
 
-main > ul > li:first-child article div#story-preview div#b7 {
+main > ul > li:first-child:first-child article div#story-preview div#b7 {
   top: 70%;
   left: 60%;
   -webkit-transform: rotate(100deg);
@@ -397,7 +364,7 @@ main > ul > li:first-child article div#story-preview div#b7 {
           animation-direction: normal;
 }
 
-main > ul > li:first-child article div#story-preview div#b8 {
+main > ul > li:first-child:first-child article div#story-preview div#b8 {
   top: 70%;
   left: 80%;
   -webkit-animation-direction: alternate;
@@ -406,47 +373,86 @@ main > ul > li:first-child article div#story-preview div#b8 {
           animation-delay: 1.5s;
 }
 
-main > ul > li:last-child {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#231f20), color-stop(40%, rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(#231f20 0%, rgba(0, 0, 0, 0) 40%);
+main > ul > li:nth-child(2) {
+  position: relative;
+  padding: 0.5em;
+  z-index: 998;
 }
 
-main > ul > li:last-child > ol {
-  width: 100%;
-  height: 52vh;
-  list-style-type: none;
-  padding: 0;
+main > ul > li:nth-child(2) > a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 8.8em;
 }
 
-main > ul > li:last-child > ol::-webkit-scrollbar {
+main > ul > li:nth-child(2) > a span {
+  text-align: center;
+  color: black;
+  margin-right: 1em;
   display: none;
 }
 
-main > ul > li:last-child > ol > li:first-child {
-  margin-left: 9%;
+main > ul > li:nth-child(2) > a div {
+  background-image: url("../images/icons/arrow-bl.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #FFDB00;
+  border-radius: 50%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 2em;
+  height: 2em;
+  z-index: 99;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
-main > ul > li:last-child > ol > li:last-child {
-  margin-right: 1.8em;
+main > ul > li:nth-child(2) > a div :hover {
+  background-position-y: 5%;
 }
 
-main > ul > li:last-child > ol > li {
-  margin: 1em 1em 0 0;
+main > ul > li:nth-child(2) > a :hover {
+  cursor: pointer;
 }
 
-main > ul > li:last-child > ol > li h2 {
+main > ul > li:nth-child(2) > a :hover + div {
+  background-position: 70% center;
+}
+
+main > ul > li:last-child {
+  position: relative;
+  padding-top: 10em;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#231f20), color-stop(40%, rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(#231f20 0%, rgba(0, 0, 0, 0) 40%);
+  min-height: 18em;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+main > ul > li:last-child::-webkit-scrollbar {
+  display: none;
+}
+
+main > ul > li:last-child article {
+  margin-right: 1em;
+  display: inline-block;
+}
+
+main > ul > li:last-child article > h2 {
   color: white;
   font-size: 1.2em;
 }
 
-main > ul > li:last-child > ol > li h2::after {
+main > ul > li:last-child article > h2::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 0;
@@ -456,12 +462,12 @@ main > ul > li:last-child > ol > li h2::after {
   padding-top: 0.2em;
 }
 
-main > ul > li:last-child > ol footer ol {
-  padding: 0;
+main > ul > li:last-child article:first-child {
+  margin-left: 1em;
 }
 
-main > ul > li:last-child > ol footer ol li {
-  display: inline-block;
+main > ul > li:last-child article:last-child {
+  margin-right: 1em;
 }
 
 section {
@@ -470,7 +476,6 @@ section {
 }
 
 section ol {
-  list-style-type: none;
   margin: 1em 0;
   padding: 0;
   width: 100%;
@@ -486,7 +491,7 @@ section ol::-webkit-scrollbar {
 }
 
 section ol li {
-  margin-right: 0.8em;
+  margin-right: 1em;
 }
 
 section ol li:first-child {
@@ -500,7 +505,7 @@ section ol li:last-child {
 section h2 {
   font-size: 1.2em;
   border-radius: 4px 4px 0 0;
-  margin: 1.8em 1em 0.8em;
+  margin: 1.8em 1em 1em;
   margin-top: 1.8em;
 }
 
@@ -528,7 +533,7 @@ section article a > img {
 }
 
 section article header {
-  padding: 1em 0.8em;
+  padding: 1em 1em;
   position: absolute;
 }
 
@@ -542,7 +547,7 @@ section article header h3 {
 }
 
 section:first-of-type {
-  margin-top: -8em;
+  margin-top: -7em;
   z-index: 2;
 }
 
@@ -565,7 +570,6 @@ section:nth-of-type(2) h2::after {
 section:nth-of-type(2) ol {
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
 
 section:nth-of-type(2) ol li ol {
@@ -591,16 +595,8 @@ article.tile {
   background-color: white;
   border-radius: 4px;
   text-align: center;
-  overflow: hidden;
   min-height: 26em;
   width: 18em;
-}
-
-article.tile:hover a > img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: 5s;
-  transition: 5s;
 }
 
 article.tile > a > img {
@@ -618,6 +614,7 @@ article.tile > a::after {
   position: absolute;
   content: "";
   display: block;
+  border-radius: 4px 4px 0 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -629,6 +626,9 @@ article.tile > a::after {
 
 article.tile > a > div {
   position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   top: 1em;
 }
 
@@ -636,6 +636,7 @@ article.tile > a > div p {
   position: relative;
   margin: 0;
   color: white;
+  white-space: normal;
   z-index: 1;
 }
 
@@ -656,9 +657,10 @@ article.tile > a > div header h3::after {
   display: block;
   height: 2px;
   content: '';
+  border-radius: 4px 4px 0 0;
   border-bottom: 2px #DB3738 solid;
   width: 112px;
-  padding-top: 0.8em;
+  padding-top: 1em;
   margin: 0 auto;
 }
 
@@ -666,6 +668,7 @@ article.tile > a footer {
   position: relative;
   padding: 1em;
   background-color: white;
+  border-radius: 0 0 4px 4px;
   margin-top: -0.3em;
 }
 
@@ -677,10 +680,18 @@ article.tile > a footer span {
 article.tile > a footer ol {
   width: 75%;
   margin: 0 auto;
+  padding: 0;
   overflow: visible;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+article.tile > a footer ol li {
+  margin: 0 0.2em;
 }
 
 article.tile > a footer ol li img {
@@ -689,13 +700,13 @@ article.tile > a footer ol li img {
 
 article.tile > a footer button {
   position: absolute;
-  top: -2.5em;
+  top: -1.8em;
   right: 1.5em;
   border: none;
   border-radius: 50%;
   background-color: #68C6F0;
-  height: 4em;
-  width: 4em;
+  height: 3.2em;
+  width: 3.2em;
   cursor: pointer;
   z-index: 3;
   -webkit-transition: all .2s;
@@ -708,12 +719,17 @@ article.tile > a footer button:hover {
 }
 
 article.tile > a footer button img {
-  width: 1.5em;
+  width: 1.2em;
   padding-top: 0.6em;
 }
 
 article.tile--compact {
   min-height: 10em;
+}
+
+article.tile--compact > h2 {
+  position: absolute;
+  top: -3.5em;
 }
 
 article.tile--compact > a > img {
@@ -724,6 +740,7 @@ article.tile--compact > a::after {
   position: absolute;
   content: "";
   display: block;
+  border-radius: 4px 4px 0 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -731,91 +748,6 @@ article.tile--compact > a::after {
   background: -webkit-gradient(linear, left top, left bottom, from(#009ddb), to(rgba(0, 71, 127, 0)));
   background: linear-gradient(#009ddb, rgba(0, 71, 127, 0));
   z-index: 0;
-}
-
-@media (min-width: 40em) {
-  body > header > nav {
-    width: 100%;
-    background-color: white;
-    font-size: 0.8em;
-    -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
-            box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
-    position: fixed;
-    width: 100%;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    z-index: 998;
-  }
-  body > header > nav ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0 auto;
-    padding: 0;
-    width: 30em;
-    list-style-type: none;
-  }
-  body > header > nav ul li:first-child {
-    position: absolute;
-    width: 100%;
-    left: 0;
-  }
-  body > header > nav ul li:first-child div {
-    width: 93em;
-    margin: 0 auto;
-    padding: 1.8em 0 0.8em;
-  }
-  body > header > nav ul li:first-child div img {
-    height: 1.7em;
-    width: initial;
-    z-index: 1;
-  }
-  body > header > nav ul li:not(:first-child) {
-    list-style-type: none;
-    width: 25%;
-    text-align: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    z-index: 1;
-    padding: 0.5em 0;
-    margin: 0.5em 0;
-  }
-  body > header > nav ul li:not(:first-child) a {
-    display: block;
-    padding: 2.5em 0 0;
-    background-position: center top;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    -webkit-transition: all .2s;
-    transition: all .2s;
-  }
-  body > header > nav ul li:not(:first-child) a:hover {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  body > header > nav ul li:not(:first-child) img {
-    width: 2em;
-    height: 2em;
-  }
-  body > header > nav ul li:nth-child(2) a {
-    background-image: url("../images/icons/book.svg");
-  }
-  body > header > nav ul li:nth-child(3) a {
-    background-image: url("../images/icons/search.svg");
-  }
-  body > header > nav ul li:nth-child(4) a {
-    background-image: url("../images/icons/read.svg");
-  }
-  body > header > nav ul li:nth-child(5) a {
-    background-image: url("../images/icons/account.svg");
-  }
-  main ol {
-    margin-top: 4em;
-  }
-  main ol h1 {
-    top: 5em;
-  }
 }
 
 @-webkit-keyframes spin {
@@ -887,6 +819,7 @@ article.tile--compact > a::after {
   }
   15% {
     background-image: url("../images/stories/lost.jpg");
+    background-repeat: no-repeat;
     background-position: 88% 70%;
     background-repeat: none;
     background-size: cover;
@@ -903,6 +836,7 @@ article.tile--compact > a::after {
   }
   15% {
     background-image: url("../images/stories/lost.jpg");
+    background-repeat: no-repeat;
     background-position: 88% 70%;
     background-repeat: none;
     background-size: cover;
@@ -957,19 +891,12 @@ article.tile--compact > a::after {
   }
   60% {
     border-radius: 50%;
-    opacity: 1;
   }
   61% {
     border-radius: 0;
-    opacity: 0;
   }
-  70% {
-    opacity: 0;
-  }
-  71% {
-    opacity: 1;
+  65% {
     border-radius: 50%;
-    margin-top: 12px;
   }
   100% {
     border-radius: 50%;
@@ -991,19 +918,12 @@ article.tile--compact > a::after {
   }
   60% {
     border-radius: 50%;
-    opacity: 1;
   }
   61% {
     border-radius: 0;
-    opacity: 0;
   }
-  70% {
-    opacity: 0;
-  }
-  71% {
-    opacity: 1;
+  65% {
     border-radius: 50%;
-    margin-top: 12px;
   }
   100% {
     border-radius: 50%;
