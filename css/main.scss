@@ -183,7 +183,7 @@ main>ul{
 
     &:first-child article{
       position: relative;
-      height: 66vh;
+      height: 80vh;
   
       header{
         position: absolute;
@@ -343,14 +343,15 @@ main>ul{
   
   // list stories
   >li:last-child{
-    position: relative;
     padding-top: 10em;
+    position: relative;
     width: 100%;
     background-image: linear-gradient(rgba(35,31,32,20) 0%, rgba(0, 0, 0, 0) 40%);
-    min-height: 18em;
+    min-height: 70vh;
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;   
+    box-sizing: border-box;
 
     &::-webkit-scrollbar { 
       display: none; 
