@@ -197,6 +197,7 @@ main>ul{
           color: white;
           font-size: 3em;
           letter-spacing: 0.3em;
+          margin: 0 0 1.2em;
   
           span{
             display: inline-block;
@@ -315,12 +316,11 @@ main>ul{
 
   // btn older stories
   >li:nth-child(2){
-    margin-top: 1em;
     padding: 0.5em;
     min-height: 20vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     z-index: 998;
 
     >button{

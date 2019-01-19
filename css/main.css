@@ -227,6 +227,7 @@ main > ul > li:first-child:first-child article header h2 {
   color: white;
   font-size: 3em;
   letter-spacing: 0.3em;
+  margin: 0 0 1.2em;
 }
 
 main > ul > li:first-child:first-child article header h2 span {
@@ -355,7 +356,6 @@ main > ul > li:first-child:first-child article div#story-preview div#b8 {
 }
 
 main > ul > li:nth-child(2) {
-  margin-top: 1em;
   padding: 0.5em;
   min-height: 20vh;
   display: -webkit-box;
@@ -365,9 +365,9 @@ main > ul > li:nth-child(2) {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   z-index: 998;
 }
 
