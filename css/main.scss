@@ -155,10 +155,11 @@ body>footer{
 
 main>ul{
   position: relative;
-  padding: 0;
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
   width: 100%;
-  height: 98vh; 
+  height: 100vh; 
   overflow-y: hidden; 
   display: flex;
   flex-direction: column-reverse;
@@ -177,173 +178,180 @@ main>ul{
     width: 100%;
     height: 30em;
     background: linear-gradient( rgba(0,0,0,0) ,rgba(0,0,0,100));
-    z-index: 0;
+    z-index: 1;
   }
 
   // preview
   >li:first-child{
     position: relative;
     width: 100%;
+    height: 100vh;
 
-    &:first-child article{
+    >div{
       position: relative;
-      height: 25em;
-  
-      header{
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        top: 0;
-        z-index: 1;
-  
-        h2{
-          text-transform: uppercase;
-          color: white;
-          font-size: 3em;
-          letter-spacing: 0.3em;
-          margin: 0 0 1.2em;
-  
-          span{
-            display: inline-block;
-          }
-  
-          span:nth-of-type(2){
-            width: 0.75em;
-            height: 0.75em;
-            margin: 0 0.15em;
-            background: white;
-            color: transparent;
-            border-radius: 50%;
-            transform: translate(-22%, 35%);
-            animation: transform 15s ease-in-out alternate-reverse infinite;
-          }
-        }
-  
-        p{
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // btn older stories
+      >div{
+        padding: 0.5em;
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 998;
+
+        >button{
+          padding: 0.2em;
+          background: transparent;
+          border: none;
+          outline: 0;  
           color: #68C6F0;
-        }
-  
-        a{
-          margin-top: 1em;
-          display: inline-block;
-          color: #00477f;
-          padding: 10px 50px 10px 20px;
-          background-color: white;
-          border-radius: 4px;
-          background-image: url('../images/icons/arrow.svg');
-          background-repeat: no-repeat;
-          background-position: 90% center;
-          background-size: 1.2em;
-          transition: all .2s;
-  
-        }
-  
-        a:hover{
-          background-color: #D4EFFC;
-          background-position: 92% center;
+          font-weight: bold;
+          line-height: 1.5em;
+          font-size: 1em;
+          opacity: 0.5;
+          cursor: pointer;
+
+          &:last-child{
+            padding-bottom: 0;
+          }
         }
       }
-  
-      div#story-preview{
-        position: absolute;
-        z-index: 0;
-        top: -8.8em;
-        width: 100%;
-        height: 35em;
-  
-        div.bar{
-          position: absolute; 
-          background: white;
-          width: 0;
-          height: 0;
-          transform: translate(-50%, 0);
-          animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
+
+      &:first-child article{
+        position: relative;
+
+        header{
+          position: relative;
+          text-align: center;
+          width: 100%;
+          height: 15em;
+          z-index: 2;
+
+          h2{
+            text-transform: uppercase;
+            color: white;
+            font-size: 3em;
+            letter-spacing: 0.3em;
+            margin: 0 0 1.2em;
+
+            span{
+              display: inline-block;
+            }
+
+            span:nth-of-type(2){
+              width: 0.75em;
+              height: 0.75em;
+              margin: 0 0.15em;
+              background: white;
+              color: transparent;
+              border-radius: 50%;
+              transform: translate(-22%, 35%);
+              animation: transform 15s ease-in-out alternate-reverse infinite;
+            }
+          }
+
+          p{
+            color: #68C6F0;
+          }
+
+          a{
+            margin-top: 1em;
+            display: inline-block;
+            color: #00477f;
+            padding: 10px 50px 10px 20px;
+            background-color: white;
+            border-radius: 4px;
+            background-image: url('../images/icons/arrow.svg');
+            background-repeat: no-repeat;
+            background-position: 90% center;
+            background-size: 1.2em;
+            transition: all .2s;
+
+          }
+
+          a:hover{
+            background-color: #D4EFFC;
+            background-position: 92% center;
+          }
         }
-  
-        div#b1{
-          top: 10%;
-          left: 20%;
-          animation-direction: alternate-reverse;
-        }
-  
-        div#b2{
-          top: 10%;
-          left: 40%;
-          animation-direction: alternate;
-          animation-delay: 2s;
-        }
-  
-        div#b3{
-          top: 10%;
-          left: 60%;
-          animation-direction: reverse;
-          animation-delay: 1.5s;
-        }
-  
-        div#b4{
-          top: 10%;
-          left: 80%;
-          animation-direction: normal;
-          animation-delay: 2s;
-        }
-  
-        div#b5{
-          top: 70%;
-          left: 20%;
-          animation-direction: reverse;
-          animation-delay: 1s;
-        }
-  
-        div#b6{
-          top: 70%;
-          left: 40%;
-          animation-direction: alternate-reverse;
-          animation-delay: 2s;
-        }
-  
-        div#b7{
-          top: 70%;
-          left: 60%;
-          transform: rotate(100deg); 
-          animation-direction: normal;
-        }
-  
-        div#b8{
-          top: 70%;
-          left: 80%;
-          animation-direction: alternate;
-          animation-delay: 1.5s;
+
+        div#story-preview{
+          position: absolute;
+          z-index: 1;
+          top: -8.8em;
+          width: 100%;
+          height: 80vh;
+
+          div.bar{
+            position: absolute; 
+            background: white;
+            width: 0;
+            height: 0;
+            transform: translate(-50%, 0);
+            animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
+          }
+
+          div#b1{
+            top: 10%;
+            left: 20%;
+            animation-direction: alternate-reverse;
+          }
+
+          div#b2{
+            top: 10%;
+            left: 40%;
+            animation-direction: alternate;
+            animation-delay: 2s;
+          }
+
+          div#b3{
+            top: 10%;
+            left: 60%;
+            animation-direction: reverse;
+            animation-delay: 1.5s;
+          }
+
+          div#b4{
+            top: 10%;
+            left: 80%;
+            animation-direction: normal;
+            animation-delay: 2s;
+          }
+
+          div#b5{
+            top: 70%;
+            left: 20%;
+            animation-direction: reverse;
+            animation-delay: 1s;
+          }
+
+          div#b6{
+            top: 70%;
+            left: 40%;
+            animation-direction: alternate-reverse;
+            animation-delay: 2s;
+          }
+
+          div#b7{
+            top: 70%;
+            left: 60%;
+            transform: rotate(100deg); 
+            animation-direction: normal;
+          }
+
+          div#b8{
+            top: 70%;
+            left: 80%;
+            animation-direction: alternate;
+            animation-delay: 1.5s;
+          } 
         } 
-      } 
-    }
-  }
-
-  // btn older stories
-  >li:nth-child(2){
-    padding: 0.5em;
-    min-height: 5em;
-    margin: 5em 0 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 998;
-
-    >button{
-      padding: 0.2em;
-      background: transparent;
-      border: none;
-      outline: 0;  
-      color: #68C6F0;
-      font-weight: bold;
-      line-height: 1.5em;
-      font-size: 1em;
-      opacity: 0.5;
-      cursor: pointer;
-
-      &:last-child{
-        padding-bottom: 0;
       }
-    }
+    } 
   }
   
   // list stories
@@ -467,14 +475,13 @@ section{
 
 // history
 section:first-of-type{
-  margin-top: -6.8em;
+  margin-top: 1em;
   z-index: 2;
 
   h2{
-    color: white;
 
     &::after{
-      border-bottom: 2px #DB3738 solid;
+      border-bottom: 2px #68C6F0 solid;
     }
   }
 }

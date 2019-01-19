@@ -1,6 +1,6 @@
-const btn_older = document.querySelector('main ul li:nth-of-type(2) button:first-child');
-const btn_newest = document.querySelector('main ul li:nth-of-type(2) button:last-child');
-const btn_group = document.querySelector('main ul li:nth-of-type(2)');
+const btn_older = document.querySelector('main ul li:first-child >div>div button:first-child');
+const btn_newest = document.querySelector('main ul li:first-child  >div>div button:last-child');
+const btn_group = document.querySelector('main ul li:first-child >div>div');
 
 btn_older.addEventListener("click", function(){
   document.getElementById('list-stories').scrollIntoView({
