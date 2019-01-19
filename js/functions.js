@@ -13,7 +13,7 @@ btn_older.addEventListener("click", function(){
 });
 
 btn_newest.addEventListener("click", function(){
-  document.getElementById('story-preview').scrollIntoView({
+  document.getElementById('prev_anchor').scrollIntoView({
     behavior: 'smooth'
   });
  
