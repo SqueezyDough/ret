@@ -47,6 +47,10 @@ ul, ol {
   color: white !important;
 }
 
+.push-down {
+  margin: 1.8em 0 12em !important;
+}
+
 body > header > nav {
   width: 100%;
   font-size: 0.8em;
@@ -211,7 +215,7 @@ main > ul > li:first-child {
 
 main > ul > li:first-child:first-child article {
   position: relative;
-  height: 80vh;
+  height: 69vh;
 }
 
 main > ul > li:first-child:first-child article header {
@@ -357,7 +361,8 @@ main > ul > li:first-child:first-child article div#story-preview div#b8 {
 
 main > ul > li:nth-child(2) {
   padding: 0.5em;
-  min-height: 20vh;
+  min-height: 10vh;
+  margin: 5em 0 3em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -389,12 +394,12 @@ main > ul > li:nth-child(2) > button:last-child {
 }
 
 main > ul > li:last-child {
-  padding-top: 10em;
   position: relative;
   width: 100%;
+  padding-top: 10em;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#231f20), color-stop(40%, rgba(0, 0, 0, 0)));
   background-image: linear-gradient(#231f20 0%, rgba(0, 0, 0, 0) 40%);
-  min-height: 70vh;
+  min-height: 60vh;
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -511,12 +516,16 @@ section article header h3 {
 }
 
 section:first-of-type {
-  margin-top: 1em;
+  margin-top: -8em;
   z-index: 2;
 }
 
+section:first-of-type h2 {
+  color: white;
+}
+
 section:first-of-type h2::after {
-  border-bottom: 2px #68C6F0 solid;
+  border-bottom: 2px #DB3738 solid;
 }
 
 section:nth-of-type(2) h2 {
