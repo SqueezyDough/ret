@@ -359,7 +359,13 @@ main>ul{
               border: 4px solid transparent;
               border-radius: 50%;
               transform: translate(-22%, 46%);
-              animation: transform 15s ease-in-out alternate-reverse infinite;
+              animation: transform-title-2 15s ease-in-out alternate-reverse infinite;
+            }
+            span:nth-of-type(3){
+              animation: transform-title-3 15s ease-in-out forwards infinite;
+            }
+            span:nth-of-type(4){
+              animation: transform-title-4 15s ease-in-out forwards infinite;
             }
           }
 
@@ -390,79 +396,6 @@ main>ul{
       }
     } 
   }
-
-  #story-preview{
-    position: absolute;
-    z-index: 1;
-    top: -8.8em;
-    width: 100%;
-    height: 80vh;
-
-    div.bar{
-      position: absolute; 
-      background: white;
-      width: 0;
-      height: 0;
-      transform: translate(-50%, 0);
-      animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
-    }
-
-    div#b1{
-      top: 10%;
-      left: 20%;
-      animation-direction: alternate-reverse;
-      animation-duration: 4s;
-    }
-
-    div#b2{
-      top: 10%;
-      left: 40%;
-      animation-direction: alternate;
-      animation-delay: 2s;
-    }
-
-    div#b3{
-      top: 10%;
-      left: 60%;
-      animation-direction: reverse;
-      animation-delay: 1.5s;
-    }
-
-    div#b4{
-      top: 10%;
-      left: 80%;
-      animation-direction: normal;
-      animation-delay: 2s;
-    }
-
-    div#b5{
-      top: 70%;
-      left: 20%;
-      animation-direction: reverse;
-      animation-delay: 1s;
-    }
-
-    div#b6{
-      top: 70%;
-      left: 40%;
-      animation-direction: alternate-reverse;
-      animation-delay: 2s;
-    }
-
-    div#b7{
-      top: 70%;
-      left: 60%;
-      transform: rotate(100deg); 
-      animation-direction: normal;
-    }
-
-    div#b8{
-      top: 70%;
-      left: 80%;
-      animation-direction: alternate;
-      animation-delay: 1.5s;
-    } 
-  } 
   
   // list stories
   >li:last-child{
@@ -727,7 +660,10 @@ article.tile--compact{
       z-index: 998;
 
       span{
-        display: inline-block;
+        display: inline-flex;
+        font-family: 'Source Code Pro', monospace;  
+        align-self: center;
+        justify-content: center;  
       }
 
       span:nth-of-type(2){
@@ -740,7 +676,13 @@ article.tile--compact{
         border: 4px solid transparent;
         border-radius: 50%;
         transform: translate(-22%, 46%);
-        animation: transform 15s ease-in-out alternate-reverse infinite;
+        animation: transform-title-2 15s ease-in-out alternate-reverse infinite;
+      }
+      span:nth-of-type(3){
+        animation: transform-title-3 15s ease-in-out forwards infinite;
+      }
+      span:nth-of-type(4){
+        animation: transform-title-4 15s ease-in-out forwards infinite;
       }
     }
 
@@ -822,6 +764,80 @@ article.tile--compact{
     }
   }
 }
+
+#story-preview{
+  position: absolute;
+  z-index: 1;
+  top: -22em;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+
+  div.bar{
+    position: absolute; 
+    background: white;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, 0);
+    animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
+  }
+
+  div#b1{
+    top: 0;
+    left: 20%;
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+  }
+
+  div#b2{
+    top: 0;
+    left: 40%;
+    animation-direction: alternate;
+    animation-delay: 2s;
+  }
+
+  div#b3{
+    top: 0;
+    left: 60%;
+    animation-direction: reverse;
+    animation-delay: 1.5s;
+  }
+
+  div#b4{
+    top: 0;
+    left: 80%;
+    animation-direction: normal;
+    animation-delay: 2s;
+  }
+
+  div#b5{
+    top: 70%;
+    left: 20%;
+    animation-direction: reverse;
+    animation-delay: 1s;
+  }
+
+  div#b6{
+    top: 70%;
+    left: 40%;
+    animation-direction: alternate-reverse;
+    animation-delay: 2s;
+  }
+
+  div#b7{
+    top: 70%;
+    left: 60%;
+    transform: rotate(100deg); 
+    animation-direction: normal;
+  }
+
+  div#b8{
+    top: 70%;
+    left: 80%;
+    animation-direction: alternate;
+    animation-delay: 1.5s;
+  } 
+} 
 
 .decrypt-char{
   display: none !important;
@@ -990,7 +1006,7 @@ article.tile--compact{
   }
 }
 
-@keyframes transform {
+@keyframes transform-title-2 {
   0% { 
     border-radius: 50%;
   }
@@ -1023,36 +1039,48 @@ article.tile--compact{
     border-radius: 50%;
   }
 }
-@keyframes transform {
-  0% { 
-    border-radius: 50%;
-  }
-  1% { 
-    border-radius: 0;
-  }
-  11% { 
-    border-radius: 0;
-  }
-  12% { 
-    border-radius: 50%;
-    border-color: white;
-    background: none;
-  }
-  60% { 
-    border-radius: 50%;
-    border-color: white;
-    background: none;
 
+@keyframes transform-title-3 {
+  81% { 
+    color: white;
   }
-  61% { 
-    border-radius: 0;
-    border-color: transparent;
-    background: white;
+  82% { 
+    color: black;
   }
-  65% { 
-    border-radius: 50%;
+  88% { 
+    color: white;
+    transform: skewY(0deg)
+  }
+  89% { 
+    transform: skewY(20deg)
+  }
+  95% { 
+    transform: skewY(0deg)
   }
   100% { 
-    border-radius: 50%;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes transform-title-4 {
+  28% { 
+    color: white;
+    transform: translate(0,0)
+  }
+  29% { 
+    transform: translate(50%,0)
+
+  }
+  45% { 
+    transform: translate(0,0)
+  }
+  75%{
+    transform: rotate(0deg);
+  }
+  76%{
+    transform: rotate(-10deg);
+  }
+  77%{
+    transform: rotate(0deg);
   }
 }
