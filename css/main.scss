@@ -641,7 +641,7 @@ article.tile--compact{
 
 #story-container{
   position: relative;
-  padding: 8em 7% 4em;
+  padding: 8em calc(8%) 4em;
 
   header{
     position: relative;
@@ -744,6 +744,7 @@ article.tile--compact{
 
   p{
     padding-top: 3em;
+    text-align: center;
     border-top: 4px solid white;
     font-family: 'Source Code Pro', monospace;
     box-sizing: border-box;
@@ -768,7 +769,7 @@ article.tile--compact{
 #story-preview{
   position: absolute;
   z-index: 1;
-  top: -22em;
+  top: 6em;
   left: 0;
   width: 100%;
   height: 80vh;
@@ -786,7 +787,7 @@ article.tile--compact{
     top: 0;
     left: 20%;
     animation-direction: alternate-reverse;
-    animation-duration: 4s;
+    animation-duration: 3s;
   }
 
   div#b2{
