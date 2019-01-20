@@ -28,7 +28,7 @@ h1, h2, h3, h4{
   font-weight: 500;
 }
 
-h1{
+>h1{
   display: none;
 }
 
@@ -127,6 +127,8 @@ body>header>nav{
 
 // footer
 body>footer{
+  position: relative;
+  z-index: 998;
   margin-top: 6em;
   background-color: white;
   padding: 1.8em 1em 2em;
@@ -334,12 +336,14 @@ main>ul{
           height: 15em;
           z-index: 2;
 
-          h2{
+          h1, h2{
+            position: relative;
             text-transform: uppercase;
             color: white;
             font-size: 3em;
             letter-spacing: 0.3em;
             margin: 0 0 1.2em;
+            z-index: 998;
 
             span{
               display: inline-block;
@@ -351,8 +355,10 @@ main>ul{
               margin: 0 0.15em;
               background: white;
               color: transparent;
+              box-sizing: border-box;
+              border: 4px solid transparent;
               border-radius: 50%;
-              transform: translate(-22%, 35%);
+              transform: translate(-22%, 46%);
               animation: transform 15s ease-in-out alternate-reverse infinite;
             }
           }
@@ -381,81 +387,82 @@ main>ul{
             background-position: 92% center;
           }
         }
-
-        div#story-preview{
-          position: absolute;
-          z-index: 1;
-          top: -8.8em;
-          width: 100%;
-          height: 80vh;
-
-          div.bar{
-            position: absolute; 
-            background: white;
-            width: 0;
-            height: 0;
-            transform: translate(-50%, 0);
-            animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
-          }
-
-          div#b1{
-            top: 10%;
-            left: 20%;
-            animation-direction: alternate-reverse;
-          }
-
-          div#b2{
-            top: 10%;
-            left: 40%;
-            animation-direction: alternate;
-            animation-delay: 2s;
-          }
-
-          div#b3{
-            top: 10%;
-            left: 60%;
-            animation-direction: reverse;
-            animation-delay: 1.5s;
-          }
-
-          div#b4{
-            top: 10%;
-            left: 80%;
-            animation-direction: normal;
-            animation-delay: 2s;
-          }
-
-          div#b5{
-            top: 70%;
-            left: 20%;
-            animation-direction: reverse;
-            animation-delay: 1s;
-          }
-
-          div#b6{
-            top: 70%;
-            left: 40%;
-            animation-direction: alternate-reverse;
-            animation-delay: 2s;
-          }
-
-          div#b7{
-            top: 70%;
-            left: 60%;
-            transform: rotate(100deg); 
-            animation-direction: normal;
-          }
-
-          div#b8{
-            top: 70%;
-            left: 80%;
-            animation-direction: alternate;
-            animation-delay: 1.5s;
-          } 
-        } 
       }
     } 
   }
+
+  #story-preview{
+    position: absolute;
+    z-index: 1;
+    top: -8.8em;
+    width: 100%;
+    height: 80vh;
+
+    div.bar{
+      position: absolute; 
+      background: white;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, 0);
+      animation: spin 10s ease-in-out forwards infinite, transform-dot 3s ease-in-out forwards infinite;
+    }
+
+    div#b1{
+      top: 10%;
+      left: 20%;
+      animation-direction: alternate-reverse;
+      animation-duration: 4s;
+    }
+
+    div#b2{
+      top: 10%;
+      left: 40%;
+      animation-direction: alternate;
+      animation-delay: 2s;
+    }
+
+    div#b3{
+      top: 10%;
+      left: 60%;
+      animation-direction: reverse;
+      animation-delay: 1.5s;
+    }
+
+    div#b4{
+      top: 10%;
+      left: 80%;
+      animation-direction: normal;
+      animation-delay: 2s;
+    }
+
+    div#b5{
+      top: 70%;
+      left: 20%;
+      animation-direction: reverse;
+      animation-delay: 1s;
+    }
+
+    div#b6{
+      top: 70%;
+      left: 40%;
+      animation-direction: alternate-reverse;
+      animation-delay: 2s;
+    }
+
+    div#b7{
+      top: 70%;
+      left: 60%;
+      transform: rotate(100deg); 
+      animation-direction: normal;
+    }
+
+    div#b8{
+      top: 70%;
+      left: 80%;
+      animation-direction: alternate;
+      animation-delay: 1.5s;
+    } 
+  } 
   
   // list stories
   >li:last-child{
@@ -699,6 +706,127 @@ article.tile--compact{
   }
 }
 
+#story-container{
+  position: relative;
+  padding: 8em 7% 4em;
+
+  header{
+    position: relative;
+    margin-top: 4em;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+
+    h1{
+      position: relative;
+      text-transform: uppercase;
+      margin: 0;
+      color: white;
+      font-size: 3em;
+      letter-spacing: 0.3em;
+      z-index: 998;
+
+      span{
+        display: inline-block;
+      }
+
+      span:nth-of-type(2){
+        width: 0.75em;
+        height: 0.75em;
+        margin: 0 0.15em;
+        background: white;
+        color: transparent;
+        box-sizing: border-box;
+        border: 4px solid transparent;
+        border-radius: 50%;
+        transform: translate(-22%, 46%);
+        animation: transform 15s ease-in-out alternate-reverse infinite;
+      }
+    }
+
+    h2{
+      color: #68C6F0;
+      font-weight: normal;
+      font-size: 1.2em;
+      margin: 2em 0;
+    }
+
+    a{
+      margin-top: 1em;
+      display: inline-block;
+      color: #00477f;
+      padding: 10px 50px 10px 20px;
+      background-color: white;
+      border-radius: 4px;
+      background-image: url('../images/icons/arrow.svg');
+      background-repeat: no-repeat;
+      background-position: 90% center;
+      background-size: 1.2em;
+      transition: all .2s;
+
+    }
+
+    a:hover{
+      background-color: #D4EFFC;
+      background-position: 92% center;
+    }
+  }
+
+  &::before{
+    position: fixed;
+    content: "";
+    display: block;
+    border-radius: 4px 4px 0 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #231f20;
+    animation: backdrop 15s ease-in-out forwards infinite;
+
+    z-index: -1;
+  }
+
+  &::after{
+    position: fixed;
+    content: "";
+    display: block;
+    border-radius: 4px 4px 0 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,100));
+    z-index: 0;
+  }
+
+  p{
+    padding-top: 3em;
+    border-top: 4px solid white;
+    font-family: 'Source Code Pro', monospace;
+    box-sizing: border-box;
+    z-index: 1;
+    word-break: break-all;
+
+    span{
+      position: relative;
+      z-index: 1;
+      text-transform: uppercase;  
+      color: white;
+      font-size: 1.8rem;
+      letter-spacing: 0.3em;
+
+      div{
+        display: inline;
+      }
+    }
+  }
+}
+
+.decrypt-char{
+  display: none !important;
+}
+
 @media (min-width: 30em){
   body>header>nav{ 
     background: white;
@@ -839,7 +967,7 @@ article.tile--compact{
     background-repeat: no-repeat;
     // https://www.saatchiart.com/art/Painting-Hidden-Messages-N-30/831404/3574945/view
     background-position: 88% 70%;
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-size: cover;
   }
   100% { 
@@ -874,12 +1002,52 @@ article.tile--compact{
   }
   12% { 
     border-radius: 50%;
+    border-color: white;
+    background: none;
   }
   60% { 
     border-radius: 50%;
+    border-color: white;
+    background: none;
+
   }
   61% { 
     border-radius: 0;
+    border-color: transparent;
+    background: white;
+  }
+  65% { 
+    border-radius: 50%;
+  }
+  100% { 
+    border-radius: 50%;
+  }
+}
+@keyframes transform {
+  0% { 
+    border-radius: 50%;
+  }
+  1% { 
+    border-radius: 0;
+  }
+  11% { 
+    border-radius: 0;
+  }
+  12% { 
+    border-radius: 50%;
+    border-color: white;
+    background: none;
+  }
+  60% { 
+    border-radius: 50%;
+    border-color: white;
+    background: none;
+
+  }
+  61% { 
+    border-radius: 0;
+    border-color: transparent;
+    background: white;
   }
   65% { 
     border-radius: 50%;
