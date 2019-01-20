@@ -749,7 +749,7 @@ article.tile--compact > a::after {
     max-width: 40em;
   }
   body > header > nav ul > li:first-child {
-    z-index: 1000;
+    z-index: 999;
   }
   body > header > nav ul > li:first-child div {
     padding: 1.8em 1em 1em;

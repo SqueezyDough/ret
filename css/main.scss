@@ -681,7 +681,7 @@ article.tile--compact{
       max-width: 40em;  
   
       >li:first-child{
-        z-index: 1000;
+        z-index: 999;
   
         div{
           padding: 1.8em 1em 1em;
