@@ -145,6 +145,79 @@ body>footer{
   }
 }
 
+section{
+  position: relative;
+  width: 100%;
+
+  ol{
+    margin: 1em 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar { 
+      display: none; 
+    }
+
+    li{
+      margin-right: 1em;
+
+      &:first-child{
+        margin-left: 1em;
+      }
+
+      &:last-child{
+        margin-right: 1em;
+      }
+    }
+  }
+
+  h2{
+    font-size: 1.2em;
+    border-radius: 4px 4px 0 0;
+    margin: 1.8em 1em 1em;
+    margin-top: 1.8em;
+
+    &::after{
+      display: block;
+      height: 2px;
+      margin: 0.3em 0 1em;
+      content: '';
+      width: 112px;
+      padding-top: 0.2em;
+    }
+  }
+
+  article{
+    position: relative;
+    border-radius: 4px;
+    width: 18rem;
+
+    a>img{
+      height: 10em;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    header{
+      padding: 1em 1em;
+      position: absolute;
+
+      h3{
+        margin: 0;
+        max-width: 15em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: white;
+      }
+    }
+  }
+}
+
 .align-icon{
   margin-bottom: -0.1em;
 }
@@ -400,92 +473,17 @@ main>ul{
   }
 } 
 
-section{
-  position: relative;
-  width: 100%;
-
-  ol{
-    margin: 1em 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: auto;
-    display: flex;
-    -webkit-overflow-scrolling: touch;
-
-    &::-webkit-scrollbar { 
-      display: none; 
-    }
-
-    li{
-      margin-right: 1em;
-
-      &:first-child{
-        margin-left: 1em;
-      }
-
-      &:last-child{
-        margin-right: 1em;
-      }
-    }
-  }
-
-  h2{
-    font-size: 1.2em;
-    border-radius: 4px 4px 0 0;
-    margin: 1.8em 1em 1em;
-    margin-top: 1.8em;
-
-    &::after{
-      display: block;
-      height: 2px;
-      margin: 0.3em 0 1em;
-      content: '';
-      width: 112px;
-      padding-top: 0.2em;
-    }
-  }
-
-  article{
-    position: relative;
-    border-radius: 4px;
-    width: 18rem;
-
-    a>img{
-      height: 10em;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    header{
-      padding: 1em 1em;
-      position: absolute;
-
-      h3{
-        margin: 0;
-        max-width: 15em;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        color: white;
-      }
-    }
-  }
-}
-
 // history
 section:first-of-type{
   margin-top: 1em;
   z-index: 2;
 
   h2{
-
     &::after{
       border-bottom: 2px #68C6F0 solid;
     }
   }
 }
-
 
 // veelbesproken
 section:nth-of-type(2){
@@ -671,7 +669,107 @@ article.tile--compact{
   }
 }
 
+@media (min-width: 30em){
+  body>header>nav{ 
+    background: white;
+    justify-content: center;
+
+    ul{
+      display: flex;
+      justify-content: center;
+      width: 75vw;    
+      max-width: 40em;  
+  
+      >li:first-child{
+        z-index: 1000;
+  
+        div{
+          padding: 1.8em 1em 1em;
+  
+          img{
+            margin: 0;
+          }
+        } 
+      }
+  
+      >li:not(:first-child) {
+        width: 20%;
+        margin-top: 0em;    
+        background: white;
+        animation: none;
+      }
+    } 
+  }
+  
+  main ul {
+    height: 80vh;
+
+    li:first-child>div>div{
+      margin-top: 10em;
+    }
+  }
+}
+
 @media (min-width: 40em){
+  // history
+  section:first-of-type{
+    margin-top: -8em;
+    z-index: 2;
+
+    h2{
+      color: white;
+    }
+  }
+
+  main ul {
+    li:first-child>div>div{
+      margin-top: 5em;
+    }
+  }
+}
+
+@media (min-width: 82em){
+  body>header>nav{ 
+    ul{ 
+      >li:first-child{
+        div{
+          padding-left: calc(7% + 1em);
+        } 
+      }
+    } 
+  }
+
+  // history
+  section:first-of-type{
+    h2{
+      padding-left: 7%;
+    }
+
+    ol li:first-child{
+      padding-left: 7%;
+    }
+  }
+
+  // veelbeproken
+  section:last-of-type{
+    h2{
+      padding-left: 7%;
+    }
+
+    ol li:first-child{
+      padding-left: 7%;
+    }
+  }
+
+  main ul {
+    li:last-child{
+      padding-left: 7%;
+    }
+  }
+
+  footer#footer{
+    padding-left: calc(7% + 1em);
+  }
 }
 
 @keyframes spin {
