@@ -22,13 +22,16 @@ var storyContent = "In kwellende situaties toveren apen pennenvruchten uit invlo
 // haal hier alle woorden uit en stip het in een lijst
 var words = storyContent.split(" ");
 
-// voeg een spatie toe na elk woord
-for (var i = 0; i < words.length - 1; i++) {
-  words[i] += " ";
-}
 
-// zet elk woord in een span en voeg het toe aan de container
-for (var i = 0; i < words.length; i++) {
+// code should only be executed on story page
+if(window.location.pathname == ('/story-code.html')){
+  // voeg een spatie toe na elk woord
+  for (var i = 0; i < words.length - 1; i++) {
+    words[i] += " ";
+  }
+
+  // zet elk woord in een span en voeg het toe aan de container
+  for (var i = 0; i < words.length; i++) {
   // maak de elementen aan waarin we de content stoppen
   var elRemainder = document.createElement('div');
   var elFirstChar = document.createElement('div');
@@ -58,42 +61,43 @@ for (var i = 0; i < words.length; i++) {
 
   // voeg het hele woord toe aan de container
   storyContainer.append(elWord);
-}
-
-// als je klikt op de fakehashkey, is de decryption gefaald
-fakeHashKey.addEventListener('click', function(){
-  hashKey_1_Owner = false, hashKey_2_Owner = false, hashKey_3_Owner = false;
-
-  if (!msgDecrypted){
-    hashKey_1.classList.remove('decrypt-char');
-    hashKey_2.classList.remove('decrypt-char');
-    hashKey_3.classList.remove('decrypt-char');
   }
 
-  console.log('decryption failed')
-  console.log('hKey_1: ' + hashKey_1_Owner, 'hKey_2: ' + hashKey_2_Owner, 'hKey_3: ' + hashKey_3_Owner)
-});
+  // als je klikt op de fakehashkey, is de decryption gefaald
+  fakeHashKey.addEventListener('click', function(){
+    hashKey_1_Owner = false, hashKey_2_Owner = false, hashKey_3_Owner = false;
 
-// bemachtig de hashkey en probeer om te decrypten
-hashKey_1.addEventListener('click', function(){
-  hashKey_1_Owner = true;
-  this.classList.add('decrypt-char');
-  attemptDescryption();
-});
+    if (!msgDecrypted){
+      hashKey_1.classList.remove('decrypt-char');
+      hashKey_2.classList.remove('decrypt-char');
+      hashKey_3.classList.remove('decrypt-char');
+    }
 
-// bemachtig de hashkey en probeer om te decrypten
-hashKey_2.addEventListener('click', function(){
-  hashKey_2_Owner = true;
-  this.classList.add('decrypt-char');
-  attemptDescryption();
-});
+    console.log('decryption failed')
+    console.log('hKey_1: ' + hashKey_1_Owner, 'hKey_2: ' + hashKey_2_Owner, 'hKey_3: ' + hashKey_3_Owner)
+  });
 
-// bemachtig de hashkey en probeer om te decrypten
-hashKey_3.addEventListener('click', function(){
-  hashKey_3_Owner = true;
-  this.classList.add('decrypt-char');
-  attemptDescryption();
-});
+  // bemachtig de hashkey en probeer om te decrypten
+  hashKey_1.addEventListener('click', function(){
+    hashKey_1_Owner = true;
+    this.classList.add('decrypt-char');
+    attemptDescryption();
+  });
+
+  // bemachtig de hashkey en probeer om te decrypten
+  hashKey_2.addEventListener('click', function(){
+    hashKey_2_Owner = true;
+    this.classList.add('decrypt-char');
+    attemptDescryption();
+  });
+
+  // bemachtig de hashkey en probeer om te decrypten
+  hashKey_3.addEventListener('click', function(){
+    hashKey_3_Owner = true;
+    this.classList.add('decrypt-char');
+    attemptDescryption();
+  });
+}
 
 // probeer te decrypten
 function attemptDescryption(){
@@ -159,7 +163,7 @@ window.addEventListener('scroll', function(e){
   var creditsLocationY = contentCredits.getBoundingClientRect();
 
   // fix fot precise location
-  var calcPreciseLocation = creditsLocationY.top - 130;
+  var calcPreciseLocation = creditsLocationY.top - 780;
 
   // add/remove class if section is in view
   if (calcPreciseLocation <= 0) {
@@ -167,24 +171,29 @@ window.addEventListener('scroll', function(e){
   } else {
     btnReadList.classList.remove('sticky-button');
   }
-})
-
-btnOlder.addEventListener("click", function(){
-  document.getElementById('list-stories').scrollIntoView({
-    behavior: 'smooth'
-  });
- 
-  this.classList.add('text-active');
-  btnNewest.classList.remove('text-active');
-  btnGroup.classList.add('push-down');
 });
 
-btnNewest.addEventListener("click", function(){
-  document.getElementById('prev_anchor').scrollIntoView({
-    behavior: 'smooth'
+// code should only be executed on index page
+if(window.location.pathname == ('/index.html')){
+  btnOlder.addEventListener("click", function(){
+    document.getElementById('list-stories').scrollIntoView({
+      behavior: 'smooth'
+    });
+   
+    this.classList.add('text-active');
+    btnNewest.classList.remove('text-active');
+    btnGroup.classList.add('push-down');
   });
- 
-  this.classList.add('text-active');
-  btnOlder.classList.remove('text-active');
-  btnGroup.classList.remove('push-down');
-});
+  
+  btnNewest.addEventListener("click", function(){
+    document.getElementById('anchor').scrollIntoView({
+      behavior: 'smooth'
+    });
+   
+    this.classList.add('text-active');
+    btnOlder.classList.remove('text-active');
+    btnGroup.classList.remove('push-down');
+  });
+  
+}
+

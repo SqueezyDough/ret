@@ -48,7 +48,7 @@ ul, ol {
 }
 
 .push-down {
-  margin: -8em 0 12em !important;
+  margin: -8em 0 12em;
 }
 
 body > header > nav {
@@ -413,7 +413,7 @@ main > ul > li:first-child > div {
           justify-content: center;
 }
 
-main > ul > li:first-child > div > div {
+main > ul > li:first-child > div > div:first-child {
   padding: 0.5em;
   min-height: 20vh;
   display: -webkit-box;
@@ -429,7 +429,7 @@ main > ul > li:first-child > div > div {
   z-index: 998;
 }
 
-main > ul > li:first-child > div > div > button {
+main > ul > li:first-child > div > div:first-child > button {
   padding: 0.2em;
   background: transparent;
   border: none;
@@ -442,7 +442,7 @@ main > ul > li:first-child > div > div > button {
   cursor: pointer;
 }
 
-main > ul > li:first-child > div > div > button:last-child {
+main > ul > li:first-child > div > div:first-child > button:last-child {
   padding-bottom: 0;
 }
 
@@ -554,7 +554,7 @@ main > ul > li:last-child article > h2::after {
   height: 2px;
   margin: 0.3em 0 0;
   content: '';
-  border-bottom: 2px #68C6F0 solid;
+  border-bottom: 2px #DB3738 solid;
   width: 112px;
   padding-top: 0.2em;
 }
@@ -779,7 +779,7 @@ article.tile--compact > a::after {
 
 #story-container button {
   position: fixed;
-  top: 6.3rem;
+  top: 90vh;
   right: 1rem;
   z-index: 999;
   width: 3rem;
@@ -789,7 +789,7 @@ article.tile--compact > a::after {
   cursor: pointer;
   -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
           box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
-  background-image: url("../images/icons/readlist-not-added.svg");
+  background-image: url("../images/icons/readlist-not-added.png");
   background-repeat: no-repeat;
   background-color: #68C6F0;
   background-position: center center;
@@ -802,7 +802,7 @@ article.tile--compact > a::after {
 #story-container button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  background-image: url("../images/icons/add-readlist.svg");
+  background-image: url("../images/icons/add-readlist.png");
   background-color: #FFDB00;
 }
 
@@ -1038,12 +1038,12 @@ article.tile--compact > a::after {
 
 .added-to-readlist {
   background-color: #68C6F0 !important;
-  background-image: url("../images/icons/add-readlist.svg") !important;
+  background-image: url("../images/icons/add-readlist.png") !important;
 }
 
 .added-to-readlist:hover {
   background-color: #FFDB00 !important;
-  background-image: url("../images/icons/remove.svg") !important;
+  background-image: url("../images/icons/remove.png") !important;
 }
 
 .decrypt-char {
@@ -1484,6 +1484,10 @@ section#reviews > div article p {
   margin-top: 0;
 }
 
+#anchor {
+  position: relative;
+}
+
 @media (min-width: 30em) {
   body > header > nav {
     background: white;
@@ -1517,11 +1521,18 @@ section#reviews > div article p {
     -webkit-animation: none;
             animation: none;
   }
+  #anchor {
+    position: absolute;
+    top: 70vh;
+  }
   main ul {
     height: 80vh;
   }
-  main ul li:first-child > div > div {
+  main ul li:first-child > div > div:first-of-type {
     margin-top: 10em;
+  }
+  .push-down {
+    margin: -18em 0 12em !important;
   }
 }
 
@@ -1551,7 +1562,7 @@ section#reviews > div article p {
     padding: 10.85em 1rem 3rem;
   }
   main ul li:first-child > div > div {
-    margin-top: 5em;
+    margin-top: 0em;
   }
 }
 
