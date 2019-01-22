@@ -8,40 +8,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="https://www.ret.nl/typo3conf/ext/ret_template/Resources/Public/images/favicon/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
-                <li>
-                    <div>
-                        <a href="#">
-                            <img src="images/logo.png" alt="RET">
+            <div>
+                <ul>
+                    <li>
+                        <div>
+                            <a href="#">
+                                <img src="images/logo.png" alt="RET">
+                            </a>
+                        </div> 
+                    </li>
+                    
+                    <li>
+                        <a href="index.html">
+                            <span>Verhalen</span>
                         </a>
-                    </div> 
-                </li>
-                
+                    </li>
+                    <li>
+                        <a href="search.html">
+                            <span>Zoeken</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Leeslijst</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Mijn RET</span>
+                        </a>
+                    </li>           
+                </ul>
+            </div>   
+
+            <ul id="breadcrumb">
                 <li>
-                    <a href="index.html">
-                        <span>Verhalen</span>
-                    </a>
+                    <a href="index.html"></a>
                 </li>
-                <li>
-                    <a href="search.html">
-                        <span>Zoeken</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span>Leeslijst</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span>Mijn RET</span>
-                    </a>
-                </li>           
+                <li>Verhaal van vandaag - Code</li>
             </ul>
         </nav>
     </header>
@@ -69,9 +79,240 @@
                 <div id="b4" class="bar"></div>
             </div>
         </article>       
-    </main>   
+    </main>  
 
-    <footer id="footer">
+    <section id="credits">
+        <h2>Credits</h2>
+        <div>
+            <article>
+                <img src="images/crew/molovich-met-pijp.jpg">
+                <header>
+                    <h3>Auteur</h3>
+                    <h4>Max Molovich</h4>
+                </header>
+                
+                <p>
+                    Max J. Molovich. Erkend miskend genie. Initiatiefnemer en Grote Leider van Nurks. Als gematigd taoïst (één samenvatting van een Belangrijk Boek gelezen) is hij van mening dat er weliswaar niet te ontsnappen valt aan de Wil van de Wereld, maar dat je best wat kunt doen aan de manier waarop de wereld haar wil aan ons, eenvoudige stervelingen, opdringt. Dat doet zij namelijk zo nu en dan ronduit onbeschoft. Max heeft zich tot taak gesteld de wereld waar het kan tot de orde te roepen. Naast Nurks schrijft hij op AT5 en werkt hij als tekstschrijver voor Meijer Verwijk Kleverman.
+                </p>
+            </article>
+    
+            <article>
+                <img src="images/crew/leroy.png">
+                <header>
+                    <h3>Interaction design, Vormgeving, Coding</h3>
+                    <h4>Leroy van Biljouw</h4>
+                </header>
+                
+                <p>
+                    Leroy van Biljouw. Trouwe onderdaan van Max Molovich en zwitsers zakmes van RET. Ik heb stiekem geen idee wat die gekke hippie links van mij moet voorstellen. 's Ochtends komt hij aangeschoffeld op kantoor met een vreemd wierook luchtje. Hij verteld vervolgens 99 keer precies hetzelfde verhaal, maar dan op een iets andere wijze. De ene keer imiteerd hij een BN'er, de andere keer doet hij zich voor als voetbalanalist. En dan zeggen mensen nog dat roken uit een pijp beter voor je is.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="write-review">
+        <div>
+            <h2>Vind je dit verhaal leuk?</h2>
+    
+            <div>
+                <h3>Deel het verhaal</h3>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+
+                <h3>Subscribe</h3>
+                <p>Subscribe je op deze makers. Elke keer wanneer ze iets nieuws uploaden, staat het verhaal meteen klaar in je Leeslijst.</p>
+                <button>Subscribe</button>
+            </div>
+            <form>
+                <fieldset>
+                    <legend>Laat een beoordeling achter</legend>
+                    <small>verplicht</small>
+                    <p>Hoeveel sterren zou je dit verhaal geven?</p>
+                
+                    <div>
+                        <div class="rating">
+                            <input type="radio" id="rating_1" name="rating" value="1">
+                            <label for="rating_1"></label>
+                
+                
+                            <input type="radio" id="rating_2" name="rating" value="1">
+                            <label for="rating_2"></label>
+                
+                    
+                            <input type="radio" id="rating_3" name="rating" value="1">
+                            <label for="rating_3"></label>
+                
+                
+                            <input type="radio" id="rating_4" name="rating" value="1">
+                            <label for="rating_4"></label>         
+                
+                    
+                            <input type="radio" id="rating_5" name="rating" value="1">
+                            <label for="rating_5"></label>
+                        </div>       
+                    </div>             
+                    <small>verplicht</small>
+                    <label>Leg uit waarom je deze rating gegeven hebt</label>
+                    <textarea name="text-rating"></textarea>             
+                </fieldset>
+                <input type="submit" value="Plaats je beoordeling"></input>                      
+            </form>   
+        </div>
+    </section>
+    
+    
+    <section id="reviews"> 
+        <h2>Beoordelingen (8)</h2>
+        <div>
+            <article>
+                <header>
+                    <h3>Horst</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Ik heb m gekraakt hoor!
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>René v D.</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Gekraakt maar ik verklap niets. Is namelijk een code die ik zelf stiekem ook vaak gebruik en ik moet een paar trucjes in mijn mouw zien te houden he. (Alsof er Nurks lezers zijn die niet onmiddelijk de ‘code’ gaan zien)
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>Wouter van den Berg</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Ja, andere lezers, die is écht niet moeilijk. Ik denk alleen dat niemand de prijs wil.
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>De verwarde man</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Ik ben anders zeer aangenaam tafelgezelschap hoor. Als je van verwarring houdt.
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>Rigo Reus</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    ‘t wier bradig en de spiraments!
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>Oz</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    eitje.
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>Paul</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Vier de herlezing in zevenvoud. Mijn lof is openhartig. Bij 87 valt de derde boom. De spiegel is herkenbaar. Treffend duplicaat begeeft zich in het openbaar. Ik zeg: knap.
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>Leroy van Biljouw</h3>
+                </header>
+                <footer>
+                        <ol>
+                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        </ol>
+                </footer>
+                
+                <p>
+                    Als je op een of andere manier de code nog steeds niet gekraakt hebt. Onthoud, je bent niet de eerste.
+                </p>
+            </article>
+        </div>     
+    </section>
+
+    <footer id="fix-footer">
         <h4>Alle Categorieën</h4>
         <div>
             <ul class="list-styled">

@@ -52,17 +52,25 @@ ul, ol {
 }
 
 body > header > nav {
+  position: relative;
   width: 100%;
   font-size: 0.8em;
   -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
           box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
-  position: fixed;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   z-index: 999;
 }
 
-body > header > nav ul {
+body > header > nav > div {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+body > header > nav ul:first-child {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,18 +78,18 @@ body > header > nav ul {
   padding: 0;
 }
 
-body > header > nav ul > li:first-child {
+body > header > nav ul:first-child > li:first-child {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 999;
 }
 
-body > header > nav ul > li:first-child div {
+body > header > nav ul:first-child > li:first-child div {
   padding: 2.1em 0 1em;
 }
 
-body > header > nav ul > li:first-child div img {
+body > header > nav ul:first-child > li:first-child div img {
   display: block;
   height: 1.7em;
   width: initial;
@@ -89,7 +97,7 @@ body > header > nav ul > li:first-child div img {
   margin: 0 auto;
 }
 
-body > header > nav ul > li:not(:first-child) {
+body > header > nav ul:first-child > li:not(:first-child) {
   display: block;
   width: 25%;
   text-align: center;
@@ -106,7 +114,7 @@ body > header > nav ul > li:not(:first-child) {
           animation-delay: 1.5s;
 }
 
-body > header > nav ul > li:not(:first-child) a {
+body > header > nav ul:first-child > li:not(:first-child) a {
   display: block;
   padding: 2.2em 0 0;
   background-position: center top;
@@ -116,38 +124,105 @@ body > header > nav ul > li:not(:first-child) a {
   transition: all .2s;
 }
 
-body > header > nav ul > li:not(:first-child) a:hover {
+body > header > nav ul:first-child > li:not(:first-child) a:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-body > header > nav ul > li:not(:first-child) img {
+body > header > nav ul:first-child > li:not(:first-child) img {
   width: 2em;
   height: 2em;
 }
 
-body > header > nav ul li:nth-child(2) a {
+body > header > nav ul:first-child li:nth-child(2) a {
   background-image: url("../images/icons/book.svg");
 }
 
-body > header > nav ul li:nth-child(3) a {
+body > header > nav ul:first-child li:nth-child(3) a {
   background-image: url("../images/icons/search.svg");
 }
 
-body > header > nav ul li:nth-child(4) a {
+body > header > nav ul:first-child li:nth-child(4) a {
   background-image: url("../images/icons/read.svg");
 }
 
-body > header > nav ul li:nth-child(5) a {
+body > header > nav ul:first-child li:nth-child(5) a {
   background-image: url("../images/icons/account.svg");
+}
+
+body > header > nav ul#breadcrumb {
+  position: absolute;
+  top: 5.5em;
+  border-top: 1px solid #e2e2e3;
+  background-color: white;
+  max-width: initial;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  margin: -10em 0;
+  padding: 0;
+  background: white;
+  -webkit-animation: show 1s ease-out forwards;
+          animation: show 1s ease-out forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+body > header > nav ul#breadcrumb li {
+  position: relative;
+  display: inline-block;
+  width: initial;
+}
+
+body > header > nav ul#breadcrumb li:first-child {
+  position: relative;
+  padding: 1em;
+}
+
+body > header > nav ul#breadcrumb li:first-child :hover {
+  background-position: right 40%;
+}
+
+body > header > nav ul#breadcrumb li:first-child a {
+  width: 2.5em;
+  height: 2em;
+  border-left: 1px solid #b6b6b8;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  display: inline-block;
+  color: #00477f;
+  background-image: url("../images/icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 75% 40%;
+  background-size: 1.2em;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+body > header > nav ul#breadcrumb li:last-child {
+  margin-top: initial;
+  -webkit-animation: none;
+          animation: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #00477f;
+  line-height: 2em;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0;
 }
 
 body > footer {
   position: relative;
   z-index: 998;
-  margin-top: 6em;
   background-color: white;
   padding: 1.8em 1em 2em;
+  margin-top: 4em;
 }
 
 body > footer div {
@@ -167,12 +242,12 @@ body > footer div ul li {
   padding-bottom: 0.5em;
 }
 
-section {
+body > section {
   position: relative;
   width: 100%;
 }
 
-section ol {
+body > section ol {
   margin: 1em 0;
   padding: 0;
   width: 100%;
@@ -183,30 +258,30 @@ section ol {
   -webkit-overflow-scrolling: touch;
 }
 
-section ol::-webkit-scrollbar {
+body > section ol::-webkit-scrollbar {
   display: none;
 }
 
-section ol li {
+body > section ol li {
   margin-right: 1em;
 }
 
-section ol li:first-child {
+body > section ol li:first-child {
   margin-left: 1em;
 }
 
-section ol li:last-child {
+body > section ol li:last-child {
   margin-right: 1em;
 }
 
-section h2 {
+body > section h2 {
   font-size: 1.2em;
   border-radius: 4px 4px 0 0;
   margin: 1.8em 1em 1em;
   margin-top: 1.8em;
 }
 
-section h2::after {
+body > section h2::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 1em;
@@ -215,14 +290,14 @@ section h2::after {
   padding-top: 0.2em;
 }
 
-section article {
+body > section article {
   position: relative;
   border-radius: 4px;
   width: 18rem;
   overflow: hidden;
 }
 
-section article a > img {
+body > section article a > img {
   height: 10em;
   width: 100%;
   -o-object-fit: cover;
@@ -230,7 +305,7 @@ section article a > img {
   border-radius: 4px;
 }
 
-section article a::after {
+body > section article a::after {
   position: absolute;
   content: "";
   display: block;
@@ -244,14 +319,14 @@ section article a::after {
   z-index: 0;
 }
 
-section article header {
+body > section article header {
   padding: 1em 1em;
   position: absolute;
   width: 100%;
   z-index: 2;
 }
 
-section article header h3 {
+body > section article header h3 {
   margin: 0;
   max-width: 14em;
   white-space: nowrap;
@@ -261,12 +336,12 @@ section article header h3 {
   color: white;
 }
 
-section article header h3::after {
+body > section article header h3::after {
   display: block;
   height: 2px;
   margin: 0.3em 0 0;
   content: '';
-  border-bottom: 2px #DB3738 solid;
+  border-bottom: 2px #68C6F0 solid;
   width: 112px;
   padding-top: 1em;
   margin: 0 auto;
@@ -479,7 +554,7 @@ main > ul > li:last-child article > h2::after {
   height: 2px;
   margin: 0.3em 0 0;
   content: '';
-  border-bottom: 2px #DB3738 solid;
+  border-bottom: 2px #68C6F0 solid;
   width: 112px;
   padding-top: 0.2em;
 }
@@ -497,16 +572,21 @@ section:first-of-type {
   z-index: 2;
 }
 
+section:first-of-type h2 {
+  font-size: 1.5em;
+}
+
 section:first-of-type h2::after {
-  border-bottom: 2px #68C6F0 solid;
+  border-bottom: 2px #DB3738 solid;
 }
 
 section:nth-of-type(2) h2 {
   color: #00477f;
+  font-size: 1.5em;
 }
 
 section:nth-of-type(2) h2::after {
-  border-bottom: 2px #68C6F0 solid;
+  border-bottom: 2px #DB3738 solid;
 }
 
 section:nth-of-type(2) ol {
@@ -600,7 +680,7 @@ article.tile > a > div header h3::after {
   height: 2px;
   content: '';
   border-radius: 4px 4px 0 0;
-  border-bottom: 2px #DB3738 solid;
+  border-bottom: 2px #68C6F0 solid;
   width: 112px;
   padding-top: 1em;
   margin: 0 auto;
@@ -694,7 +774,7 @@ article.tile--compact > a::after {
 
 #story-container {
   position: relative;
-  padding: 8em calc(8%) 4em;
+  padding: 12em 8% 4em;
 }
 
 #story-container header {
@@ -835,7 +915,7 @@ article.tile--compact > a::after {
 #story-preview {
   position: absolute;
   z-index: 1;
-  top: 6em;
+  top: 10em;
   left: 0;
   width: 100%;
   height: 80vh;
@@ -924,6 +1004,431 @@ article.tile--compact > a::after {
   display: none !important;
 }
 
+section#credits {
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  background: #00477f;
+  color: white;
+  padding-bottom: 6em;
+}
+
+section#credits h2 {
+  margin: 2.5em 0 1.5em;
+  font-size: 1.5em;
+}
+
+section#credits h2::after {
+  border-color: #DB3738;
+  top: 1.4em;
+  position: absolute;
+}
+
+section#credits > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+section#credits > div > article {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+section#credits > div > article :first-of-type {
+  margin-right: 1.5em;
+}
+
+section#credits > div > article img {
+  border-radius: 50%;
+  margin-right: 1em;
+  width: 5em;
+  height: 5em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: inline-block;
+}
+
+section#credits > div > article header {
+  position: absolute;
+  top: 1.2em;
+  padding: 0;
+  display: inline-block;
+  width: initial;
+  padding-left: 0;
+}
+
+section#credits > div > article header h3 {
+  color: #e2e2e3;
+  font-size: 0.8em;
+  width: 100%;
+  text-align: left;
+  overflow: visible;
+}
+
+section#credits > div > article header h3::after {
+  display: none;
+}
+
+section#credits > div > article header h4 {
+  color: white;
+  margin: 0;
+}
+
+section#credits > div > article p {
+  display: block;
+  color: #e2e2e3;
+  line-height: 1.5em;
+  width: 85%;
+}
+
+section#write-review {
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  z-index: 998;
+  padding-bottom: 2em;
+  background-color: #f5f5f6;
+  padding-bottom: 6em;
+}
+
+section#write-review > div {
+  position: relative;
+  max-width: 75.5em;
+  margin: -5em auto;
+  background-color: white;
+  border-radius: 4px;
+  min-height: 38em;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+          box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+}
+
+section#write-review > div h2 {
+  padding: 1.8em 1rem 0;
+  margin: 0;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+section#write-review > div h2::after {
+  display: block;
+  height: 2px;
+  content: '';
+  border-radius: 4px 4px 0 0;
+  border-bottom: 2px #DB3738 solid;
+  width: 112px;
+  padding-top: 0.3em;
+}
+
+section#write-review > div > div {
+  padding: 0 1em;
+}
+
+section#write-review > div > div h3 {
+  margin-top: 3em;
+}
+
+section#write-review > div > div p {
+  max-width: 25%;
+  color: #6D6E71;
+}
+
+section#write-review > div > div button {
+  display: block;
+  margin: 2em 0 0;
+  padding: 10px 20px 10px 20px;
+  background-color: #D4EFFC;
+  color: #00477f;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+section#write-review > div > div button:hover {
+  background-color: #68C6F0;
+  color: #00477f;
+}
+
+section#write-review > div > div a {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  color: red;
+  margin-right: 1em;
+  background-size: 3em;
+}
+
+section#write-review > div > div a:nth-of-type(1) {
+  background-image: url("../images/icons/facebook.png");
+}
+
+section#write-review > div > div a:nth-of-type(2) {
+  background-image: url("../images/icons/twitter.png");
+}
+
+section#write-review > div > div a:nth-of-type(3) {
+  background-image: url("../images/icons/google_plus.png");
+}
+
+section#write-review > div form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  min-height: 38em;
+  background-color: #e2e2e3;
+  padding: 9.3em 1rem 1em;
+  border-radius: 0 4px 4px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section#write-review > div form fieldset {
+  border: none;
+  margin: 0;
+}
+
+section#write-review > div form fieldset legend {
+  font-size: 1.2em;
+  color: #00477f;
+  font-weight: 500;
+  -webkit-margin-after: 1em;
+          margin-block-end: 1em;
+}
+
+section#write-review > div form small {
+  display: block;
+  color: #b6b6b8;
+}
+
+section#write-review > div form small:last-of-type {
+  margin-top: 6em;
+}
+
+section#write-review > div form p {
+  margin: 0;
+  font-size: 1em;
+}
+
+section#write-review > div form label {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+section#write-review > div form div {
+  position: relative;
+  padding-top: 0.5em;
+}
+
+section#write-review > div form div .rating {
+  position: absolute;
+  left: 0;
+  -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+section#write-review > div form div .rating input {
+  display: none;
+}
+
+section#write-review > div form div .rating label {
+  display: block;
+  cursor: pointer;
+  width: 50px;
+  background: transparent;
+}
+
+section#write-review > div form div .rating label::before {
+  content: '\f005';
+  font-family: fontAwesome;
+  position: relative;
+  display: block;
+  font-size: 2.5em;
+  color: #b6b6b8;
+}
+
+section#write-review > div form div .rating label::after {
+  content: '\f005';
+  font-family: fontAwesome;
+  position: absolute;
+  display: block;
+  font-size: 2.5em;
+  color: #68C6F0;
+  top: 0;
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+section#write-review > div form div .rating label:hover::after,
+section#write-review > div form div .rating label:hover ~ label::after,
+section#write-review > div form div .rating input:checked ~ label::after {
+  opacity: 1;
+}
+
+section#write-review > div form input[type="submit"] {
+  display: block;
+  margin: 2em 0 0 1em;
+  padding: 10px 50px 10px 20px;
+  background-color: #00477f;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 20px;
+  border: none;
+  border-radius: 4px;
+  background-image: url(../images/icons/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  background-size: 1.2em;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+section#write-review > div form input[type="submit"]:hover {
+  background-color: #D4EFFC;
+  color: #00477f;
+  background-position: 92% center;
+}
+
+section#write-review > div form textarea {
+  display: block;
+  width: 96%;
+  height: 5em;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+  padding: 1em;
+  font-size: 1em;
+}
+
+section#reviews {
+  background: #f5f5f6;
+  margin: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 6em;
+}
+
+section#reviews h2 {
+  margin: 1.8em 0 0;
+  color: #00477f;
+  padding-left: 1rem;
+  font-size: 1.5em;
+}
+
+section#reviews h2::after {
+  display: block;
+  height: 2px;
+  content: '';
+  border-radius: 4px 4px 0 0;
+  border-bottom: 2px #DB3738 solid;
+  width: 112px;
+  padding-top: 0.3em;
+}
+
+section#reviews > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+section#reviews > div::-webkit-scrollbar {
+  display: none;
+}
+
+section#reviews > div article {
+  background-color: white;
+  margin-right: 1em;
+  display: inline-block;
+  height: 15em;
+  min-width: 20em;
+  padding: 1em;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+          box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+}
+
+section#reviews > div article:first-of-type {
+  margin-left: 1em;
+}
+
+section#reviews > div article::before {
+  display: block;
+  height: 2px;
+  content: '';
+  border-radius: 4px 4px 0 0;
+  border-bottom: 2px #e2e2e3 solid;
+  width: 112px;
+  padding-top: 1em;
+}
+
+section#reviews > div article ol {
+  margin-top: 0.5em;
+}
+
+section#reviews > div article ol li {
+  margin-right: 0.3em;
+  padding-left: 0;
+}
+
+section#reviews > div article ol li:first-child {
+  margin-left: 0;
+}
+
+section#reviews > div article header {
+  padding: 0;
+  margin-top: 1.8em;
+  position: relative;
+}
+
+section#reviews > div article header h3 {
+  color: #00477f;
+  text-align: left;
+  font-size: 1em;
+}
+
+section#reviews > div article header h3::after {
+  display: none;
+}
+
+section#reviews > div article p {
+  color: #6d6e71;
+}
+
+#fix-footer {
+  margin-top: 0;
+}
+
 @media (min-width: 30em) {
   body > header > nav {
     background: white;
@@ -931,7 +1436,7 @@ article.tile--compact > a::after {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  body > header > nav ul {
+  body > header > nav ul:first-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -941,16 +1446,16 @@ article.tile--compact > a::after {
     width: 75vw;
     max-width: 40em;
   }
-  body > header > nav ul > li:first-child {
+  body > header > nav ul:first-child > li:first-child {
     z-index: 999;
   }
-  body > header > nav ul > li:first-child div {
+  body > header > nav ul:first-child > li:first-child div {
     padding: 1.8em 1em 1em;
   }
-  body > header > nav ul > li:first-child div img {
+  body > header > nav ul:first-child > li:first-child div img {
     margin: 0;
   }
-  body > header > nav ul > li:not(:first-child) {
+  body > header > nav ul:first-child > li:not(:first-child) {
     width: 20%;
     margin-top: 0em;
     background: white;
@@ -979,8 +1484,13 @@ article.tile--compact > a::after {
 }
 
 @media (min-width: 82em) {
-  body > header > nav ul > li:first-child div {
+  body > header > nav > div ul:first-of-type > li:first-child div {
     padding-left: calc(7% + 1em);
+  }
+  body > header > nav ul#breadcrumb {
+    padding-left: 7%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   section:first-of-type h2 {
     padding-left: 7%;
@@ -997,8 +1507,20 @@ article.tile--compact > a::after {
   main ul li:last-child {
     padding-left: 7%;
   }
-  footer#footer {
+  body > footer {
     padding-left: calc(7% + 1em);
+  }
+  section#credits h2 {
+    padding-left: 7%;
+  }
+  section#credits article:first-of-type {
+    padding-left: 7%;
+  }
+  section#reviews h2 {
+    padding-left: calc(7% + 1rem);
+  }
+  section#reviews article:first-of-type {
+    margin-left: calc(7% + 1em) !important;
   }
 }
 
