@@ -1369,6 +1369,7 @@ section#reviews > div {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 section#reviews > div::-webkit-scrollbar {
