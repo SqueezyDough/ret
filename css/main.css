@@ -786,12 +786,23 @@ article.tile--compact > a::after {
   height: 3rem;
   border-radius: 50%;
   border: none;
+  cursor: pointer;
   -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
           box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
-  background-image: url("../images/icons/read.svg");
+  background-image: url("../images/icons/add-readlist.svg");
   background-repeat: no-repeat;
-  background-color: #e2e2e3;
+  background-color: #68C6F0;
   background-position: center center;
+  background-size: 40%;
+  outline: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+#story-container button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #FFDB00;
 }
 
 #story-container .sticky-button {
@@ -1541,6 +1552,9 @@ section#reviews > div article p {
     padding-left: 7%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+  }
+  main button {
+    right: 7% !important;
   }
   section:first-of-type h2 {
     padding-left: 7%;

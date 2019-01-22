@@ -714,11 +714,20 @@ article.tile--compact{
     height: 3rem;
     border-radius: 50%;
     border: none;
+    cursor: pointer;
     box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
-    background-image: url('../images/icons/read.svg');
+    background-image: url('../images/icons/add-readlist.svg');
     background-repeat: no-repeat;
-    background-color: #e2e2e3;
+    background-color: #68C6F0;
     background-position: center center;
+    background-size: 40%;
+    outline: none;
+    transition: all .2s;
+
+    &:hover{
+      transform: scale(1.1);
+      background-color: #FFDB00;
+    }
   }
 
   .sticky-button{
@@ -1407,7 +1416,6 @@ section#reviews{
 
 @media (min-width: 82em){
   body>header>nav{ 
-
     >div{
       ul:first-of-type{ 
         >li:first-child{
@@ -1422,6 +1430,10 @@ section#reviews{
       padding-left: 7%;
       box-sizing: border-box;
     }
+  }
+
+  main button{
+    right: 7% !important;
   }
 
   // history
