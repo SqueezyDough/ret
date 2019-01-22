@@ -3,6 +3,7 @@ const btnNewest = document.querySelector('main ul li:first-child  >div>div butto
 const btnGroup = document.querySelector('main ul li:first-child >div>div');
 const contentCredits = document.getElementById('credits');
 const btnReadList = document.querySelector('#story-container button');
+const btnsReadList = document.getElementsByClassName('add-to-readlist');
 // story - CODE
 const storyContainer = document.querySelector('#story-container p');
 
@@ -139,6 +140,19 @@ function addDecryption(char, delay){
   }, delay);  
 }
 
+// add listener to all buttons in list
+for (var i = 0; i < btnsReadList.length; i++){
+  btnsReadList[i].addEventListener("click", function(){
+    console.log('click');
+    if (this.classList.contains('added-to-readlist')){
+      this.classList.remove('added-to-readlist');
+    }
+    else{
+      this.classList.add('added-to-readlist');
+    }
+  });
+}
+
 // stick btn on top credits section
 window.addEventListener('scroll', function(e){
   // get location of creadits section
@@ -154,7 +168,6 @@ window.addEventListener('scroll', function(e){
     btnReadList.classList.remove('sticky-button');
   }
 })
-
 
 btnOlder.addEventListener("click", function(){
   document.getElementById('list-stories').scrollIntoView({

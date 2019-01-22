@@ -716,7 +716,7 @@ article.tile--compact{
     border: none;
     cursor: pointer;
     box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
-    background-image: url('../images/icons/add-readlist.svg');
+    background-image: url('../images/icons/readlist-not-added.svg');
     background-repeat: no-repeat;
     background-color: #68C6F0;
     background-position: center center;
@@ -726,6 +726,7 @@ article.tile--compact{
 
     &:hover{
       transform: scale(1.1);
+      background-image: url('../images/icons/add-readlist.svg');
       background-color: #FFDB00;
     }
   }
@@ -933,6 +934,16 @@ article.tile--compact{
     animation-delay: 1.5s;
   } 
 } 
+
+.added-to-readlist{
+  background-color: #68C6F0 !important;
+  background-image: url('../images/icons/add-readlist.svg') !important;
+
+  &:hover{ 
+    background-color: #FFDB00 !important;
+    background-image: url('../images/icons/remove.svg') !important;
+  }
+}
 
 .decrypt-char{
   display: none !important;
