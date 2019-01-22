@@ -1,7 +1,8 @@
 const btnOlder = document.querySelector('main ul li:first-child >div>div button:first-child');
 const btnNewest = document.querySelector('main ul li:first-child  >div>div button:last-child');
 const btnGroup = document.querySelector('main ul li:first-child >div>div');
-
+const contentCredits = document.getElementById('credits');
+const btnReadList = document.querySelector('#story-container button');
 // story - CODE
 const storyContainer = document.querySelector('#story-container p');
 
@@ -137,6 +138,22 @@ function addDecryption(char, delay){
     char.classList.add('decrypt-char');
   }, delay);  
 }
+
+// stick btn on top credits section
+window.addEventListener('scroll', function(e){
+  // get location of creadits section
+  var creditsLocationY = contentCredits.getBoundingClientRect();
+
+  // fix fot precise location
+  var calcPreciseLocation = creditsLocationY.top - 130;
+
+  // add/remove class if section is in view
+  if (calcPreciseLocation <= 0) {
+    btnReadList.classList.add('sticky-button');
+  } else {
+    btnReadList.classList.remove('sticky-button');
+  }
+})
 
 
 btnOlder.addEventListener("click", function(){

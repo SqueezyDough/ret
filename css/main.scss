@@ -705,6 +705,29 @@ article.tile--compact{
   position: relative;
   padding: 12em 8% 4em;
 
+  button{
+    position: fixed;
+    top: 6.3rem;
+    right: 1rem;
+    z-index: 999;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
+    background-image: url('../images/icons/read.svg');
+    background-repeat: no-repeat;
+    background-color: #e2e2e3;
+    background-position: center center;
+  }
+
+  .sticky-button{
+    position: absolute;
+    top: initial;
+    bottom: -1.5rem;
+    z-index: 998;
+  }
+
   header{
     position: relative;
     margin-top: 4em;
