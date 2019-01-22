@@ -1380,7 +1380,7 @@ section#reviews > div article {
   margin-right: 1em;
   display: inline-block;
   height: 15em;
-  min-width: 20em;
+  min-width: 18em;
   padding: 1em;
   -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
           box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
