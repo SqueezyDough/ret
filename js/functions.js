@@ -166,7 +166,7 @@ window.addEventListener('scroll', function(e){
   var creditsLocationY = contentCredits.getBoundingClientRect();
 
   // fix fot precise location
-  var calcPreciseLocation = creditsLocationY.top - 780;
+  var calcPreciseLocation = creditsLocationY.top - 680;
 
   // add/remove class if section is in view
   if (calcPreciseLocation <= 0) {
@@ -177,7 +177,7 @@ window.addEventListener('scroll', function(e){
 });
 
 // code should only be executed on index page
-if(window.location.pathname == ('/index.html') || window.location.pathname == ('/ret/index.html')){
+if(window.location.pathname == ('/index.html') || window.location.pathname == ('/ret/index.html') || window.location.pathname == ('/ret/')){
   btnOlder.addEventListener("click", function(){
     document.getElementById('list-stories').scrollIntoView({
       behavior: 'smooth'
