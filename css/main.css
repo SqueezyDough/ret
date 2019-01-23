@@ -1634,11 +1634,11 @@ section#reviews > div article p {
 }
 
 @media (min-width: 40em) {
-  > section:first-of-type {
+  body > section:first-of-type {
     margin-top: -8em;
     z-index: 2;
   }
-  > section:first-of-type h2 {
+  body > section:first-of-type h2 {
     color: white;
   }
   section#credits > div {
