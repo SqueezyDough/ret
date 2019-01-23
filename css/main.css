@@ -837,7 +837,7 @@ article.tile--compact > a::after {
 
 #story-container {
   position: relative;
-  padding: 12em 8% 8em;
+  padding: 12em 1em 8em;
 }
 
 #story-container .sticky-button {
@@ -933,7 +933,7 @@ article.tile--compact > a::after {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 0 8%;
+  padding: 0 1em;
   border-radius: 4px;
   width: 100%;
   z-index: 998;
@@ -1101,7 +1101,7 @@ div#story-preview div#b8 {
 .add-to-readlist {
   position: fixed;
   top: 76vh;
-  right: 8%;
+  right: 1rem;
   z-index: 999;
   width: 3rem;
   height: 3rem;
@@ -1625,10 +1625,7 @@ section#reviews > div article p {
   .push-down {
     margin: -18em 0 12em !important;
   }
-  #story-container .sticky-button {
-    bottom: 1rem;
-  }
-  #story-container section > label {
+  #story-container section label {
     text-align: right;
   }
 }
@@ -1703,6 +1700,18 @@ section#reviews > div article p {
   }
   section#reviews article:first-of-type {
     margin-left: calc(7% + 1em) !important;
+  }
+  #story-container {
+    padding: 12em 8% 8em;
+  }
+  #story-container button {
+    right: 8%;
+  }
+  #story-container section {
+    padding: 2em 8%;
+  }
+  #story-container section label {
+    padding: 2em 8% 0;
   }
 }
 
