@@ -283,6 +283,7 @@ body > section h2::after {
   content: '';
   width: 112px;
   padding-top: 0.2em;
+  border-bottom: 2px solid #DB3738;
 }
 
 body > section article {
