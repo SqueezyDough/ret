@@ -765,15 +765,15 @@ article.tile--compact{
 
 #story-container{
   position: relative;
-  padding: 12em 8% 4em;
+  padding: 12em 8% 8em;
 
   .sticky-button{
     position: absolute;
     top: initial;
-    bottom: -1.5rem;
+    bottom: 1.5rem;
     z-index: 998;
   }
-
+  
   header{
     position: relative;
     margin-top: 4em;
@@ -843,6 +843,27 @@ article.tile--compact{
       background-color: #D4EFFC;
       background-position: 92% center;
     }
+  }
+
+  section{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 8%;
+    border-radius: 4px;
+    width: 100%;
+    z-index: 998;;
+    box-sizing: border-box;
+    text-align: left;
+    
+    label{
+      display: block;
+      border-top: 2px solid #b6b6b8;
+      width: 100%;
+      padding: 2em 4rem 2em 0;
+      box-sizing: border-box;
+      color: white;
+    } 
   }
 
   &::before{
@@ -979,7 +1000,7 @@ div#story-preview{
 .add-to-readlist{
   position: fixed;
   top: 78vh;
-  right: 1rem;
+  right: 8%;
   z-index: 999;
   width: 3rem;
   height: 3rem;
@@ -1019,7 +1040,7 @@ section#credits{
     font-size: 1.5em;
     color: white;
     &::after{
-      border-color: #DB3738;
+      border-bottom: 2px solid #DB3738;
       top: 1.4em;
       position: absolute;
     }
@@ -1464,6 +1485,16 @@ section#reviews{
   .push-down{
     margin: -18em 0 12em!important;
   }
+
+  #story-container{
+    .sticky-button{
+      bottom: 1rem;
+    }
+
+    section>label{
+      text-align: right;
+    }
+  }
 }
 
 @media (min-width: 40em){
@@ -1520,10 +1551,6 @@ section#reviews{
       padding-left: 7%;
       box-sizing: border-box;
     }
-  }
-
-  main button{
-    right: 7% !important;
   }
 
   // history
