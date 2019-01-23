@@ -1678,7 +1678,7 @@ section#reviews > div article p {
   body > section:last-of-type h2 {
     padding-left: 7%;
   }
-  body > section:last-of-type ol li:first-child {
+  body > section:last-of-type > ol > li:first-child {
     padding-left: 7%;
   }
   main > ul > li:last-child {
