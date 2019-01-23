@@ -4,6 +4,8 @@ const btnGroup = document.querySelector('main ul li:first-child >div>div');
 const contentCredits = document.getElementById('credits');
 const btnReadList = document.querySelector('#story-container button');
 const btnsReadList = document.getElementsByClassName('add-to-readlist');
+const reviewsContainer = document.querySelectorAll('section:nth-of-type(2) article')
+
 // story - CODE
 const storyContainer = document.querySelector('#story-container p');
 
@@ -17,8 +19,7 @@ var hashKey_2_Owner = false;
 var hashKey_3_Owner = false;
 var msgDecrypted = false;
 
-
-console.log(window.location.pathname );
+var delays = [10000, 11000, 12000, 13000];
 
 // code should only be executed on story page
 if(window.location.pathname == ('/story-code.html') || window.location.pathname == ('/ret/story-code.html')){
@@ -134,7 +135,7 @@ function decrypt_code(){
 
   for (var i = 0; i < encrypted_chars.length; i++) { 
     delayOptions = delaysMilliSec.length-1;
-    delay = Math.floor((Math.random() * delayOptions) +1);  
+    delay = Math.floor((Math.random() * delayOptions) +1);
 
     // voeg css class toe voor decryption met de delay
     addDecryption(encrypted_chars[i], delaysMilliSec[delay]);  
@@ -146,6 +147,47 @@ function addDecryption(char, delay){
     char.classList.add('decrypt-char');
   }, delay);  
 }
+
+// show/hide reviews
+setInterval(function(){
+  // for every article...
+  for (var i = 0; i < reviewsContainer.length; i++){
+    var nextReview;
+    var delaysInSeconds = ['.2s', '.3s', '.4s', '.5s', '.6s','.7s', '.8s', '.9s', '1s'];
+
+    // scope single review p's
+    var reviews = reviewsContainer[i].querySelectorAll('div>section article');
+    
+    // for every review (p) in article...
+    for(var x = 0; x < reviews.length; x++){
+      review = reviews[x]; 
+
+      // check if p is shown
+      if (review.classList.contains('show-review')){
+        
+        // hide this one
+        review.classList.remove('show-review');
+
+        // check if p has next sibling 
+        if (review.nextElementSibling != null){
+          // next review is next sibling
+          nextReview = review.nextElementSibling;       
+        }            
+        else{
+          // no next sibling, next review is first p
+          nextReview = review.parentElement.querySelector('article:first-of-type');
+        }       
+      } 
+    } 
+
+    // display reviews with random delays
+    delayOptions = delaysInSeconds.length-1;
+    randomNumber = Math.floor((Math.random() * delayOptions) +1);
+
+    nextReview.style.transitionDelay = delaysInSeconds[randomNumber];
+    nextReview.classList.add('show-review');
+  }  
+}, 6000);
 
 // add listener to all buttons in list
 for (var i = 0; i < btnsReadList.length; i++){
@@ -197,6 +239,4 @@ if(window.location.pathname == ('/index.html') || window.location.pathname == ('
     btnOlder.classList.remove('text-active');
     btnGroup.classList.remove('push-down');
   });
-  
 }
-

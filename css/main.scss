@@ -189,22 +189,21 @@ body>header>nav{
 // footer
 body>footer{
   position: relative;
-  z-index: 998;
   background-color: white;
-  padding: 1.8em 1em 2em;
+  background-image: url('../images/logo.png');
+  background-position: calc(100% + -1rem) center;
+  background-repeat: no-repeat;
+  background-size: 4em;
+  padding: 3em 1em 3em;
   margin-top: 4em;
 
-  div{
-    display: flex;
-
-    ul{
-      justify-content: center;
-      padding: 0 1.3em;
-  
-      li{
-        padding-bottom: 0.5em;
-      }
-    }
+  &::after{
+    display: block;
+    height: 2px;
+    content: '';
+    border-radius: 4px 4px 0 0;
+    border-bottom: 2px #DB3738 solid;
+    width: calc(100% - 5rem);
   }
 }
 
@@ -240,7 +239,7 @@ body>section{
   h2{
     font-size: 1.2em;
     border-radius: 4px 4px 0 0;
-    margin: 1.8em 1em 1em;
+    margin: 1.8rem 1rem 1rem;
     margin-top: 1.8em;
 
     &::after{
@@ -325,7 +324,7 @@ main>ul{
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh; 
+  max-height: 100vh; 
   overflow-y: hidden; 
   display: flex;
   flex-direction: column-reverse;
@@ -504,7 +503,7 @@ main>ul{
 } 
 
 // history
-section:first-of-type{
+>section:first-of-type{
   margin-top: 1em;
   z-index: 2;
 
@@ -517,7 +516,7 @@ section:first-of-type{
 }
 
 // veelbesproken
-section:nth-of-type(2){
+>section:nth-of-type(2){
   h2{
     color: #00477f;
     font-size: 1.5em;
@@ -556,6 +555,7 @@ article.tile{
   text-align: center;
   min-height: 26em;
   width: 18em;
+  box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
 
   >a{
     >img{
@@ -586,12 +586,73 @@ article.tile{
       box-sizing: border-box;
       top: 1em;
 
-      p{
+      p, >section>article{
         position: relative;
         margin: 0;
         color: white;
         white-space: normal;
         z-index: 1;
+        padding: 0 1em;
+      }
+
+      >section{
+        position: relative;
+
+        article{
+          position: absolute;
+          top: 20em;
+          left: 1em;
+          width: calc(100% - 2rem);
+          box-sizing: border-box;    
+          background-color: #ffffffCC;
+          padding: 0 1em 1em;
+          transition: all .8s ease-in-out;
+
+          p{
+            text-align: left;
+            color:#6D6E71;
+            padding: 0;
+          }
+       
+          h4{
+            display: block;
+            text-align: left;
+            font-weight: bolder;
+            color: #00477f;
+            font-size: 0.8em;
+            margin: 0;
+  
+            &::before{
+              display: block;
+              height: 2px;
+              padding: 1rem 0 0;
+              margin: 0 0 1em;
+              content: '';
+              border-bottom: 2px white solid;
+              width: 112px; 
+            }
+          }
+
+          >footer{
+            text-align: left;
+            ol{
+              margin: 0;
+              padding: 0;
+              li{
+                display: inline-block;
+                margin: 0.5em 0.2em 0;
+
+                &:first-child{
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        } 
+      }
+
+      article.show-review{
+        top: 1em !important;
       }
       
       header{
@@ -619,12 +680,13 @@ article.tile{
       }
     }
 
-    footer{
+    >footer{
       position: relative;
       padding: 1em;
       background-color: white;
       border-radius: 0 0 4px 4px;
       margin-top: -0.3em;
+      z-index: 998;
 
       span{
         font-size: 0.8em;
@@ -704,32 +766,6 @@ article.tile--compact{
 #story-container{
   position: relative;
   padding: 12em 8% 4em;
-
-  button{
-    position: fixed;
-    top: 80vh;
-    right: 1rem;
-    z-index: 999;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
-    background-image: url('../images/icons/readlist-not-added.png');
-    background-repeat: no-repeat;
-    background-color: #68C6F0;
-    background-position: center center;
-    background-size: 40%;
-    outline: none;
-    transition: all .2s;
-
-    &:hover{
-      transform: scale(1.1);
-      background-image: url('../images/icons/add-readlist.png');
-      background-color: #FFDB00;
-    }
-  }
 
   .sticky-button{
     position: absolute;
@@ -861,7 +897,7 @@ article.tile--compact{
   }
 }
 
-#story-preview{
+div#story-preview{
   position: absolute;
   z-index: 1;
   top: 10em;
@@ -944,6 +980,33 @@ article.tile--compact{
     background-image: url('../images/icons/remove.png') !important;
   }
 }
+
+.add-to-readlist{
+  position: fixed;
+  top: 80vh;
+  right: 1rem;
+  z-index: 999;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 20px 0 rgba(35,31,32,.1);
+  background-image: url('../images/icons/readlist-not-added.png');
+  background-repeat: no-repeat;
+  background-color: #68C6F0;
+  background-position: center center;
+  background-size: 40%;
+  outline: none;
+  transition: all .2s;
+
+  &:hover{
+    transform: scale(1.1);
+    background-image: url('../images/icons/add-readlist.png');
+    background-color: #FFDB00;
+  }
+}
+
 
 .decrypt-char{
   display: none !important;
@@ -1242,6 +1305,16 @@ section#contribute{
           resize: none;
           padding: 1em;
           font-size: 1em;
+          outline: 2px solid #b6b6b8;
+          transition: all .2s;
+
+          &:focus:invalid{
+            outline: 2px solid #DB3738;           
+          }
+          
+          &:valid{
+            outline: 2px solid #3adc2a;
+          }
         }
       }
     }  
@@ -1402,7 +1475,7 @@ section#reviews{
 
 @media (min-width: 40em){
   // history
-  section:first-of-type{
+  >section:first-of-type{
     margin-top: -8em;
     z-index: 2;
 
@@ -1461,7 +1534,7 @@ section#reviews{
   }
 
   // history
-  section:first-of-type{
+  body>section:first-of-type{
     h2{
       padding-left: 7%;
     }
@@ -1472,7 +1545,7 @@ section#reviews{
   }
 
   // veelbeproken
-  section:last-of-type{
+  body>section:last-of-type{
     h2{
       padding-left: 7%;
     }
@@ -1482,14 +1555,16 @@ section#reviews{
     }
   }
 
-  main ul {
-    li:last-child{
+  main>ul {
+    >li:last-child{
       padding-left: 7%;
     }
   }
 
   body>footer{
-    padding-left: calc(7% + 1em);
+    padding-left: calc(7% + 1rem);
+    padding-right: calc(7% + 1rem);
+    background-position: calc(93% - 1rem);
   }
 
   section#credits{
