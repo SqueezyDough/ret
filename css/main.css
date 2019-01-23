@@ -1071,18 +1071,13 @@ div#story-preview div#b8 {
 }
 
 .added-to-readlist {
-  background-color: #68C6F0 !important;
-  background-image: url("../images/icons/add-readlist.png") !important;
-}
-
-.added-to-readlist:hover {
   background-color: #FFDB00 !important;
-  background-image: url("../images/icons/remove.png") !important;
+  background-image: url("../images/icons/add-readlist.png") !important;
 }
 
 .add-to-readlist {
   position: fixed;
-  top: 80vh;
+  top: 78vh;
   right: 1rem;
   z-index: 999;
   width: 3rem;
@@ -1105,7 +1100,6 @@ div#story-preview div#b8 {
 .add-to-readlist:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  background-image: url("../images/icons/add-readlist.png");
   background-color: #FFDB00;
 }
 
