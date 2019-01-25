@@ -325,10 +325,7 @@ body > section article header {
 body > section article header h3 {
   margin: 0;
   max-width: 14em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   text-align: center;
-  overflow: hidden;
   color: white;
 }
 
@@ -1127,6 +1124,30 @@ div#story-preview div#b8 {
   background-color: #FFDB00;
 }
 
+.add-to-readlist span {
+  display: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+span.show-confirmation {
+  display: block !important;
+  position: absolute;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+          box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+  top: 50%;
+  right: 3.5rem;
+  color: #00477f;
+  padding: 0.5rem;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  background-color: white;
+  border-radius: 4px;
+  width: 10rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
 .decrypt-char {
   display: none !important;
 }
@@ -1265,21 +1286,21 @@ section#contribute > div > div {
           flex-direction: column;
 }
 
-section#contribute > div > div > div {
+section#contribute > div > div > section {
   position: relative;
   max-width: 30rem;
   padding: 0 1em 3em;
 }
 
-section#contribute > div > div > div h3 {
+section#contribute > div > div > section h3 {
   margin-top: 3em;
 }
 
-section#contribute > div > div > div p {
+section#contribute > div > div > section p {
   color: #6D6E71;
 }
 
-section#contribute > div > div > div button {
+section#contribute > div > div > section button {
   display: block;
   margin: 2em 0 0;
   padding: 10px 20px 10px 20px;
@@ -1295,12 +1316,12 @@ section#contribute > div > div > div button {
   transition: all .2s;
 }
 
-section#contribute > div > div > div button:hover {
+section#contribute > div > div > section button:hover {
   background-color: #68C6F0;
   color: #00477f;
 }
 
-section#contribute > div > div > div a {
+section#contribute > div > div > section a {
   display: inline-block;
   width: 3em;
   height: 3em;
@@ -1309,33 +1330,39 @@ section#contribute > div > div > div a {
   background-size: 3em;
 }
 
-section#contribute > div > div > div a:nth-of-type(1) {
+section#contribute > div > div > section a:nth-of-type(1) {
   background-image: url("../images/icons/facebook.png");
 }
 
-section#contribute > div > div > div a:nth-of-type(2) {
+section#contribute > div > div > section a:nth-of-type(2) {
   background-image: url("../images/icons/twitter.png");
 }
 
-section#contribute > div > div > div a:nth-of-type(3) {
+section#contribute > div > div > section a:nth-of-type(3) {
   background-image: url("../images/icons/google_plus.png");
 }
 
-section#contribute > div > div form {
+section#contribute > div > div .form {
   width: 100%;
+  min-width: 60%;
   background-color: #e2e2e3;
-  padding: 3em 0;
+  padding: 3rem 1rem;
   border-radius: 0 4px 4px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-section#contribute > div > div form fieldset {
-  border: none;
+section#contribute > div > div .form h3 {
   margin: 0;
 }
 
-section#contribute > div > div form fieldset legend {
+section#contribute > div > div .form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+section#contribute > div > div .form fieldset legend {
   font-size: 1.2em;
   color: #00477f;
   font-weight: 500;
@@ -1343,32 +1370,32 @@ section#contribute > div > div form fieldset legend {
           margin-block-end: 1em;
 }
 
-section#contribute > div > div form small {
+section#contribute > div > div .form small {
   display: block;
   color: #b6b6b8;
 }
 
-section#contribute > div > div form small:last-of-type {
+section#contribute > div > div .form small:last-of-type {
   margin-top: 6em;
 }
 
-section#contribute > div > div form p {
+section#contribute > div > div .form p {
   margin: 0;
   font-size: 1em;
 }
 
-section#contribute > div > div form label {
+section#contribute > div > div .form label {
   display: block;
   margin-bottom: 1em;
   font-size: 1em;
 }
 
-section#contribute > div > div form div {
+section#contribute > div > div .form div {
   position: relative;
   padding-top: 0.5em;
 }
 
-section#contribute > div > div form div .rating {
+section#contribute > div > div .form div .rating {
   position: absolute;
   left: 0;
   -webkit-transform: translate(0%, 0%);
@@ -1385,18 +1412,18 @@ section#contribute > div > div form div .rating {
           justify-content: flex-start;
 }
 
-section#contribute > div > div form div .rating input {
+section#contribute > div > div .form div .rating input {
   display: none;
 }
 
-section#contribute > div > div form div .rating label {
+section#contribute > div > div .form div .rating label {
   display: block;
   cursor: pointer;
   width: 50px;
   background: transparent;
 }
 
-section#contribute > div > div form div .rating label::before {
+section#contribute > div > div .form div .rating label::before {
   content: '\f005';
   font-family: fontAwesome;
   position: relative;
@@ -1405,29 +1432,29 @@ section#contribute > div > div form div .rating label::before {
   color: #b6b6b8;
 }
 
-section#contribute > div > div form div .rating label::after {
+section#contribute > div > div .form div .rating label::after {
   content: '\f005';
   font-family: fontAwesome;
   position: absolute;
   display: block;
   font-size: 2.5em;
   color: #68C6F0;
-  top: 0;
+  top: .5rem;
   opacity: 0;
   -webkit-transition: .5s;
   transition: .5s;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-section#contribute > div > div form div .rating label:hover::after,
-section#contribute > div > div form div .rating label:hover ~ label::after,
-section#contribute > div > div form div .rating input:checked ~ label::after {
+section#contribute > div > div .form div .rating label:hover::after,
+section#contribute > div > div .form div .rating label:hover ~ label::after,
+section#contribute > div > div .form div .rating input:checked ~ label::after {
   opacity: 1;
 }
 
-section#contribute > div > div form input[type="submit"] {
+section#contribute > div > div .form input[type="submit"] {
   display: block;
-  margin: 2em 0 0 1em;
+  margin: 2em 0;
   padding: 10px 50px 10px 20px;
   background-color: #00477f;
   color: white;
@@ -1446,31 +1473,33 @@ section#contribute > div > div form input[type="submit"] {
   transition: all .2s;
 }
 
-section#contribute > div > div form input[type="submit"]:hover {
+section#contribute > div > div .form input[type="submit"]:hover {
   background-color: #D4EFFC;
   color: #00477f;
   background-position: 92% center;
 }
 
-section#contribute > div > div form textarea {
+section#contribute > div > div .form textarea {
   display: block;
-  width: 90%;
+  width: 100%;
   height: 5em;
   border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: none;
   resize: none;
   padding: 1em;
   font-size: 1em;
-  outline: 2px solid #b6b6b8;
+  outline: 2px solid white;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 
-section#contribute > div > div form textarea:focus:invalid {
+section#contribute > div > div .form textarea:focus:invalid {
   outline: 2px solid #DB3738;
 }
 
-section#contribute > div > div form textarea:valid {
+section#contribute > div > div .form textarea:valid {
   outline: 2px solid #3adc2a;
 }
 
@@ -1570,6 +1599,18 @@ section#reviews > div article header h3::after {
 
 section#reviews > div article p {
   color: #6d6e71;
+  max-width: 100%;
+}
+
+section#reviews > div article#user_review {
+  -webkit-animation: add-review .5s ease-out forwards;
+          animation: add-review .5s ease-out forwards;
+  width: 0;
+  min-width: 0;
+}
+
+section#reviews > div article#user_review::before {
+  border-color: white;
 }
 
 #fix-footer {
@@ -1651,10 +1692,9 @@ section#reviews > div article p {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  section#contribute > div > div form {
+  section#contribute > div > div .form {
     margin-top: -7.3em;
-    min-height: 38em;
-    padding: 10.85em 1rem 3rem;
+    padding: 10.85em 1rem 1rem;
   }
   main ul li:first-child > div > div {
     margin-top: 0em;
@@ -2013,6 +2053,20 @@ section#reviews > div article p {
   77% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes add-review {
+  100% {
+    min-width: 18rem;
+    background-color: #FFDB00;
+  }
+}
+
+@keyframes add-review {
+  100% {
+    min-width: 18rem;
+    background-color: #FFDB00;
   }
 }
 /*# sourceMappingURL=main.css.map */

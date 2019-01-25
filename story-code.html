@@ -119,7 +119,7 @@
             <h2>Vind je dit verhaal leuk?</h2>
 
             <div>
-                <div>
+                <section>
                     <h3>Deel het verhaal</h3>
                     <a href="#"></a>
                     <a href="#"></a>
@@ -128,8 +128,8 @@
                     <h3>Subscribe</h3>
                     <p>Subscribe je op deze makers. Elke keer wanneer ze iets nieuws uploaden, staat het verhaal meteen klaar in je Leeslijst.</p>
                     <button>Subscribe</button>
-                </div>
-                <form method="POST">
+                </section>
+                <form class='form' method="POST">
                     <fieldset>
                         <legend>Laat een beoordeling achter</legend>
                         <small>verplicht</small>
@@ -140,26 +140,22 @@
                                 <input type="radio" id="rating_5" name="rating" value="5">
                                 <label for="rating_5"></label>
                     
-                    
                                 <input type="radio" id="rating_4" name="rating" value="4">
                                 <label for="rating_4"></label>
                     
-                        
                                 <input type="radio" id="rating_3" name="rating" value="3" checked>
-                                <label for="rating_3"></label>
-                    
+                                <label for="rating_3"></label>                  
                     
                                 <input type="radio" id="rating_2" name="rating" value="2">
                                 <label for="rating_2"></label>         
-                    
-                        
+                     
                                 <input type="radio" id="rating_1" name="rating" value="1">
                                 <label for="rating_1"></label>
                             </div>       
                         </div>             
                         <small>verplicht</small>
-                        <label>Leg uit waarom je deze rating gegeven hebt</label>
-                        <textarea name="text-rating" placeholder="Geef hier je uitleg" required></textarea>           
+                        <label>Leg uit waarom je deze rating gegeven hebt.</label>
+                        <textarea name="text-rating" placeholder="Geef hier je uitleg" maxlength="140" required></textarea>           
                     </fieldset>
                     <input type="submit" value="Plaats je beoordeling"></input>                      
                 </form>   
@@ -168,22 +164,21 @@
     </section>
 
     <section id="reviews"> 
-        <h2>Beoordelingen (8)</h2>
+        <h2>Beoordelingen (<span></span>)</h2>
         <div>
             <article>
                 <header>
                     <h3>Horst</h3>
                 </header>
-                <footer>
-                        <ol>
-                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
-                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
-                            <li><img src="images/icons/star-filled.svg" alt="*"></li>
-                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
-                            <li><img src="images/icons/star-empty.svg" alt="*"></li>
-                        </ol>
-                </footer>
-                
+                <small>
+                    <ol>
+                        <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                        <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                        <li><img src="images/icons/star-filled.svg" alt="*"></li>
+                        <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                        <li><img src="images/icons/star-empty.svg" alt="*"></li>
+                    </ol>
+                </small>          
                 <p>
                     Ik heb m gekraakt hoor!
                 </p>
@@ -192,7 +187,7 @@
                 <header>
                     <h3>René v D.</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -200,7 +195,7 @@
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     Gekraakt maar ik verklap niets. Is namelijk een code die ik zelf stiekem ook vaak gebruik en ik moet een paar trucjes in mijn mouw zien te houden he. (Alsof er Nurks lezers zijn die niet onmiddelijk de ‘code’ gaan zien)
@@ -210,7 +205,7 @@
                 <header>
                     <h3>Wouter van den Berg</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -218,7 +213,7 @@
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     Ja, andere lezers, die is écht niet moeilijk. Ik denk alleen dat niemand de prijs wil.
@@ -228,7 +223,7 @@
                 <header>
                     <h3>De verwarde man</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -236,7 +231,7 @@
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                    </small>
                 
                 <p>
                     Ik ben anders zeer aangenaam tafelgezelschap hoor. Als je van verwarring houdt.
@@ -246,7 +241,7 @@
                 <header>
                     <h3>Rigo Reus</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -254,7 +249,7 @@
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     ‘t wier bradig en de spiraments!
@@ -264,7 +259,7 @@
                 <header>
                     <h3>Oz</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -272,7 +267,7 @@
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     eitje.
@@ -282,7 +277,7 @@
                 <header>
                     <h3>Paul</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
@@ -290,7 +285,7 @@
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     Vier de herlezing in zevenvoud. Mijn lof is openhartig. Bij 87 valt de derde boom. De spiegel is herkenbaar. Treffend duplicaat begeeft zich in het openbaar. Ik zeg: knap.
@@ -300,7 +295,7 @@
                 <header>
                     <h3>Leroy van Biljouw</h3>
                 </header>
-                <footer>
+                <small>
                         <ol>
                             <li><img src="images/icons/star-filled.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
@@ -308,7 +303,7 @@
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                             <li><img src="images/icons/star-empty.svg" alt="*"></li>
                         </ol>
-                </footer>
+                </small>
                 
                 <p>
                     Als je op een of andere manier de code nog steeds niet gekraakt hebt. Onthoud, je bent niet de eerste.
