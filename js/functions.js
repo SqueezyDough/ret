@@ -284,9 +284,7 @@ reviewForm.querySelector('input[type=submit]').addEventListener('click', functio
   var rating = reviewForm.querySelector('input:checked');
   var textArea = reviewForm.querySelector('textarea');
 
-  if(textArea.validity && rating != null){
-    console.log('form is valid');
-  
+  if(!textArea.validity.valueMissing && rating != null){ 
     var formSection = document.createElement('section');
     formSection.classList.add('form');
 
