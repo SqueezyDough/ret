@@ -284,7 +284,7 @@ reviewForm.querySelector('input[type=submit]').addEventListener('click', functio
   var rating = reviewForm.querySelector('input:checked');
   var textArea = reviewForm.querySelector('textarea');
 
-  if(!textArea.validity.valueMissing && rating != null){ 
+  if(textArea.validity.valid && rating != null){ 
     var formSection = document.createElement('section');
     formSection.classList.add('form');
 
@@ -353,5 +353,8 @@ reviewForm.querySelector('input[type=submit]').addEventListener('click', functio
     article.append(body);
 
     countReviews();
+  }
+  else if(!textArea.validity.valid){
+    textArea.focus();
   }
 });
