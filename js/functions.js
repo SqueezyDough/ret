@@ -298,7 +298,7 @@ reviewForm.querySelector('input[type=submit]').addEventListener('click', functio
     var body = document.createElement('p');
 
     header.textContent = "Bedankt voor je beoordeling";
-    body.textContent = "Je beoordeling is geplaatst";
+    body.textContent = "Je beoordeling is meteen zichtbaar.";
 
     formSection.appendChild(header);
     formSection.appendChild(body);

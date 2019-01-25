@@ -1240,7 +1240,7 @@ section#credits > div > article p {
 }
 
 section#contribute {
-  padding: 1em;
+  padding: 0 1em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
@@ -1253,14 +1253,14 @@ section#contribute {
 section#contribute > div {
   max-width: 75.5em;
   margin: -5em auto;
-  background-color: white;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
           box-shadow: 0 1px 20px 0 rgba(35, 31, 32, 0.1);
+  background-color: white;
 }
 
 section#contribute > div h2 {
-  padding: 1.8em 1rem 0;
+  padding: 1.8rem 1rem 0;
   margin: 0;
   text-align: left;
   font-size: 1.5rem;
@@ -1286,25 +1286,26 @@ section#contribute > div > div {
           flex-direction: column;
 }
 
-section#contribute > div > div > section {
-  position: relative;
+section#contribute > div > div > section:first-of-type {
   max-width: 30rem;
   padding: 0 1em 3em;
+  background: #f5f5f6;
+  border-radius: 0 4px 4px 0;
 }
 
-section#contribute > div > div > section h3 {
+section#contribute > div > div > section:first-of-type h3 {
   margin-top: 3em;
 }
 
-section#contribute > div > div > section p {
+section#contribute > div > div > section:first-of-type p {
   color: #6D6E71;
 }
 
-section#contribute > div > div > section button {
+section#contribute > div > div > section:first-of-type button {
   display: block;
   margin: 2em 0 0;
   padding: 10px 20px 10px 20px;
-  background-color: #D4EFFC;
+  background-color: #ebebec;
   color: #00477f;
   font-size: 1em;
   font-weight: 500;
@@ -1316,12 +1317,12 @@ section#contribute > div > div > section button {
   transition: all .2s;
 }
 
-section#contribute > div > div > section button:hover {
-  background-color: #68C6F0;
+section#contribute > div > div > section:first-of-type button:hover {
+  background-color: #D4EFFC;
   color: #00477f;
 }
 
-section#contribute > div > div > section a {
+section#contribute > div > div > section:first-of-type a {
   display: inline-block;
   width: 3em;
   height: 3em;
@@ -1330,26 +1331,25 @@ section#contribute > div > div > section a {
   background-size: 3em;
 }
 
-section#contribute > div > div > section a:nth-of-type(1) {
+section#contribute > div > div > section:first-of-type a:nth-of-type(1) {
   background-image: url("../images/icons/facebook.png");
 }
 
-section#contribute > div > div > section a:nth-of-type(2) {
+section#contribute > div > div > section:first-of-type a:nth-of-type(2) {
   background-image: url("../images/icons/twitter.png");
 }
 
-section#contribute > div > div > section a:nth-of-type(3) {
+section#contribute > div > div > section:first-of-type a:nth-of-type(3) {
   background-image: url("../images/icons/google_plus.png");
 }
 
 section#contribute > div > div .form {
   width: 100%;
   min-width: 60%;
-  background-color: #e2e2e3;
   padding: 3rem 1rem;
-  border-radius: 0 4px 4px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border-right: 1px solid #e2e2e3;
 }
 
 section#contribute > div > div .form h3 {
@@ -1360,6 +1360,7 @@ section#contribute > div > div .form fieldset {
   border: none;
   padding: 0;
   margin: 0;
+  color: #6D6E71;
 }
 
 section#contribute > div > div .form fieldset legend {
@@ -1490,17 +1491,23 @@ section#contribute > div > div .form textarea {
   resize: none;
   padding: 1em;
   font-size: 1em;
-  outline: 2px solid white;
+  outline: none;
+  background-color: white;
+  border: 1px solid #00477f;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 
+section#contribute > div > div .form textarea:focus {
+  background-color: #f5f5f6;
+}
+
 section#contribute > div > div .form textarea:focus:invalid {
-  outline: 2px solid #DB3738;
+  border: 1px solid #DB3738;
 }
 
 section#contribute > div > div .form textarea:valid {
-  outline: 2px solid #3adc2a;
+  border: 1px solid #3adc2a;
 }
 
 section#reviews {
@@ -1688,13 +1695,17 @@ section#reviews > div article#user_review::before {
   }
   section#contribute > div > div {
     -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  section#contribute > div > div section:first-of-type {
+    margin-top: -6.4em;
+    padding-top: 4.5em;
   }
   section#contribute > div > div .form {
-    margin-top: -7.3em;
-    padding: 10.85em 1rem 1rem;
+    margin-top: -6.4em;
+    padding: 8rem 1rem 1rem;
   }
   main ul li:first-child > div > div {
     margin-top: 0em;
@@ -1753,6 +1764,9 @@ section#reviews > div article#user_review::before {
   }
   #story-container section label {
     padding: 2em 8% 0;
+  }
+  .add-to-readlist {
+    top: 90vh;
   }
 }
 
