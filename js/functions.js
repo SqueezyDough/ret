@@ -270,6 +270,21 @@ if(window.location.pathname == ('/index.html') || window.location.pathname == ('
   });
 }
 
+// form validation
+reviewForm.querySelector('textarea').addEventListener('input', function(){
+  var submit = this.parentNode.parentNode.querySelector('input[type=submit]');
+  if (this.validity.valid){
+   
+
+    console.log('this');
+    console.log(this.validity.valid);
+    submit.classList.remove("show-disabled");
+  }
+  else{
+    submit.classList.add("show-disabled");
+  }
+})
+
 // buttons shouldnt be submitting
 for (var i = 0; i < allButtons.length; i++){
   allButtons[i].addEventListener('click', function(event){
@@ -356,5 +371,17 @@ reviewForm.querySelector('input[type=submit]').addEventListener('click', functio
   }
   else if(!textArea.validity.valid){
     textArea.focus();
+
+    var error = document.createElement('span');
+    var explainError = document.createElement('span');
+
+    error.classList.add('danger');
+    error.textContent = "Oeps! Vergeet niet om extra uitleg te geven."
+
+    explainError.classList.add('explanation')
+    explainError.textContent = "Extra uitleg helpt andere bezoekers om je rating beter te begrijpen."
+
+    textArea.previousElementSibling.appendChild(error);
+    error.appendChild(explainError);
   }
 });

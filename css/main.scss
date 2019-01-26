@@ -1479,6 +1479,28 @@ section#reviews{
   position: relative;
 }
 
+.danger{
+  display: block;
+  width: calc(100% - 1rem);
+  background-color: #DB3738;
+  color: white;
+  font-weight: bolder;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.explanation{
+  display: block;
+  font-size: .8rem;
+  font-weight: normal;
+}
+
+.show-disabled{
+  opacity: .7;
+  transition: .2s;
+}
+
 @media (min-width: 30em){
   body>header>nav{ 
     background: white;
