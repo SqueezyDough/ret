@@ -69,7 +69,7 @@ body > header > nav > div {
   z-index: 999;
 }
 
-body > header > nav ul:first-child {
+body > header > nav ul {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,18 +78,18 @@ body > header > nav ul:first-child {
   padding: 0;
 }
 
-body > header > nav ul:first-child > li:first-child {
+body > header > nav ul > li:first-child {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 999;
 }
 
-body > header > nav ul:first-child > li:first-child div {
+body > header > nav ul > li:first-child div {
   padding: 2.1em 0 1em;
 }
 
-body > header > nav ul:first-child > li:first-child div img {
+body > header > nav ul > li:first-child div img {
   display: block;
   height: 1.7em;
   width: initial;
@@ -97,7 +97,7 @@ body > header > nav ul:first-child > li:first-child div img {
   margin: 0 auto;
 }
 
-body > header > nav ul:first-child > li:not(:first-child) {
+body > header > nav ul > li:not(:first-child) {
   display: block;
   width: 25%;
   text-align: center;
@@ -114,7 +114,7 @@ body > header > nav ul:first-child > li:not(:first-child) {
           animation-delay: 1.5s;
 }
 
-body > header > nav ul:first-child > li:not(:first-child) a {
+body > header > nav ul > li:not(:first-child) a {
   display: block;
   padding: 2.2em 0 0;
   background-position: center top;
@@ -124,29 +124,29 @@ body > header > nav ul:first-child > li:not(:first-child) a {
   transition: all .2s;
 }
 
-body > header > nav ul:first-child > li:not(:first-child) a:hover {
+body > header > nav ul > li:not(:first-child) a:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-body > header > nav ul:first-child > li:not(:first-child) img {
+body > header > nav ul > li:not(:first-child) img {
   width: 2em;
   height: 2em;
 }
 
-body > header > nav ul:first-child li:nth-child(2) a {
+body > header > nav ul li:nth-child(2) a {
   background-image: url("../images/icons/book.svg");
 }
 
-body > header > nav ul:first-child li:nth-child(3) a {
+body > header > nav ul li:nth-child(3) a {
   background-image: url("../images/icons/search.svg");
 }
 
-body > header > nav ul:first-child li:nth-child(4) a {
+body > header > nav ul li:nth-child(4) a {
   background-image: url("../images/icons/read.svg");
 }
 
-body > header > nav ul:first-child li:nth-child(5) a {
+body > header > nav ul li:nth-child(5) a {
   background-image: url("../images/icons/account.svg");
 }
 
@@ -1443,7 +1443,7 @@ section#contribute > div > div .form div .rating label::after {
   opacity: 0;
   -webkit-transition: .5s;
   transition: .5s;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 5px #00477f;
 }
 
 section#contribute > div > div .form div .rating label:hover::after,

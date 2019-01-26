@@ -61,7 +61,7 @@ body>header>nav{
     z-index: 999;;
   }
   
-  ul:first-child{
+  ul{
     width: 100%;
     display: flex;
     margin: 0 auto;
@@ -1296,7 +1296,7 @@ section#contribute{
                 top: .5rem;
                 opacity: 0;
                 transition: .5s;
-                text-shadow: 0 2px 5px rgba(0,0,0,.5);
+                text-shadow: 0 2px 5px #00477f;
               }
             }
       

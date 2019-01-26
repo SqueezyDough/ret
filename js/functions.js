@@ -24,6 +24,9 @@ var msgDecrypted = false;
 
 var delays = [100, 500, 900, 1300];
 
+// validation
+var errorDispayed = false;
+
 // code should only be executed on story page
 if(window.location.pathname == ('/story-code.html') || window.location.pathname == ('/ret/story-code.html')){
   // content van het verhaal
@@ -121,6 +124,115 @@ if(window.location.pathname == ('/story-code.html') || window.location.pathname 
     hashKey_3_Owner = true;
     this.classList.add('decrypt-char');
     attemptDescryption();
+  });
+
+  // form validation
+  reviewForm.querySelector('textarea').addEventListener('input', function(){
+    var submit = this.parentNode.parentNode.querySelector('input[type=submit]');
+    if (this.validity.valid){
+      submit.classList.remove("show-disabled");
+    }
+    else{
+      submit.classList.add("show-disabled");
+    }
+  });
+
+  // hide form when form is valid and show confirmation
+  reviewForm.querySelector('input[type=submit]').addEventListener('click', function(event){
+    event.preventDefault();
+
+    var rating = reviewForm.querySelector('input:checked');
+    var textArea = reviewForm.querySelector('textarea');
+
+    if(textArea.validity.valid && rating != null){ 
+      var formSection = document.createElement('section');
+      formSection.classList.add('form');
+
+      // display confirmation
+      reviewForm.parentNode.appendChild(formSection);
+      reviewForm.parentElement.removeChild(reviewForm);
+
+      var header = document.createElement('h3');
+      var body = document.createElement('p');
+
+      header.textContent = "Bedankt voor je beoordeling";
+      body.textContent = "Je beoordeling is meteen zichtbaar.";
+
+      formSection.appendChild(header);
+      formSection.appendChild(body);
+
+
+      // append review to list
+      var ratingValue = rating.getAttribute('value');
+
+      var article = document.createElement('article');
+      article.id = "user_review";
+
+      reviewsSection.prepend(article);
+
+      var headerContainer = document.createElement('header');
+      var header = document.createElement('h3');
+      header.textContent = "Joost F.";
+
+      var small = document.createElement('small');
+      var list = document.createElement('ol');
+
+      article.appendChild(headerContainer);
+      headerContainer.appendChild(header);
+
+      article.appendChild(small);
+      small.appendChild(list);
+
+      for (var i = 0; i < ratingValue; i++){
+        var listItem = document.createElement('li');
+        list.appendChild(listItem);
+
+        var img = document.createElement('img');
+        img.setAttribute('src', 'images/icons/star-filled.svg');
+        img.setAttribute('alt', '*');
+            
+        listItem.append(img);   
+      }
+
+      var emptyStars = 5 - ratingValue;
+
+      for (var x = 0; x < emptyStars; x++){
+        var listItem = document.createElement('li');
+        list.appendChild(listItem);
+
+        var img = document.createElement('img');
+        img.setAttribute('src', 'images/icons/star-empty.svg');
+        img.setAttribute('alt', '*');
+            
+        listItem.append(img);    
+      }    
+
+      var body = document.createElement('p');
+      body.textContent = textArea.value;
+
+      article.append(body);
+
+      countReviews();
+    }
+    else if(!textArea.validity.valid){
+      textArea.focus();
+
+      if(!errorDispayed){
+        var error = document.createElement('span');
+        var explainError = document.createElement('span');
+    
+        error.classList.add('danger');
+        error.textContent = "Oeps! Vergeet niet om extra uitleg te geven."
+    
+        explainError.classList.add('explanation')
+        explainError.textContent = "Extra uitleg helpt andere bezoekers om je rating beter te begrijpen."
+    
+        textArea.previousElementSibling.appendChild(error);
+        error.appendChild(explainError);
+    
+        errorDispayed = true;
+      } 
+    }
   });
 }
 
@@ -270,118 +382,10 @@ if(window.location.pathname == ('/index.html') || window.location.pathname == ('
   });
 }
 
-// form validation
-reviewForm.querySelector('textarea').addEventListener('input', function(){
-  var submit = this.parentNode.parentNode.querySelector('input[type=submit]');
-  if (this.validity.valid){
-   
-
-    console.log('this');
-    console.log(this.validity.valid);
-    submit.classList.remove("show-disabled");
-  }
-  else{
-    submit.classList.add("show-disabled");
-  }
-})
-
 // buttons shouldnt be submitting
 for (var i = 0; i < allButtons.length; i++){
   allButtons[i].addEventListener('click', function(event){
+    console.log(this);
     event.preventDefault();
   });
 }
-
-// hide form when form is valid and show confirmation
-reviewForm.querySelector('input[type=submit]').addEventListener('click', function(event){
-  event.preventDefault();
-
-  var rating = reviewForm.querySelector('input:checked');
-  var textArea = reviewForm.querySelector('textarea');
-
-  if(textArea.validity.valid && rating != null){ 
-    var formSection = document.createElement('section');
-    formSection.classList.add('form');
-
-    // display confirmation
-    reviewForm.parentNode.appendChild(formSection);
-    reviewForm.parentElement.removeChild(reviewForm);
-
-    var header = document.createElement('h3');
-    var body = document.createElement('p');
-
-    header.textContent = "Bedankt voor je beoordeling";
-    body.textContent = "Je beoordeling is meteen zichtbaar.";
-
-    formSection.appendChild(header);
-    formSection.appendChild(body);
-
-
-    // append review to list
-    var ratingValue = rating.getAttribute('value');
-
-    var article = document.createElement('article');
-    article.id = "user_review";
-
-    reviewsSection.prepend(article);
-
-    var headerContainer = document.createElement('header');
-    var header = document.createElement('h3');
-    header.textContent = "Joost F.";
-
-    var small = document.createElement('small');
-    var list = document.createElement('ol');
-
-    article.appendChild(headerContainer);
-    headerContainer.appendChild(header);
-
-    article.appendChild(small);
-    small.appendChild(list);
-
-    for (var i = 0; i < ratingValue; i++){
-      var listItem = document.createElement('li');
-      list.appendChild(listItem);
-
-      var img = document.createElement('img');
-      img.setAttribute('src', 'images/icons/star-filled.svg');
-      img.setAttribute('alt', '*');
-          
-      listItem.append(img);   
-    }
-
-    var emptyStars = 5 - ratingValue;
-
-    for (var x = 0; x < emptyStars; x++){
-      var listItem = document.createElement('li');
-      list.appendChild(listItem);
-
-      var img = document.createElement('img');
-      img.setAttribute('src', 'images/icons/star-empty.svg');
-      img.setAttribute('alt', '*');
-          
-      listItem.append(img);    
-    }    
-
-    var body = document.createElement('p');
-    body.textContent = textArea.value;
-
-    article.append(body);
-
-    countReviews();
-  }
-  else if(!textArea.validity.valid){
-    textArea.focus();
-
-    var error = document.createElement('span');
-    var explainError = document.createElement('span');
-
-    error.classList.add('danger');
-    error.textContent = "Oeps! Vergeet niet om extra uitleg te geven."
-
-    explainError.classList.add('explanation')
-    explainError.textContent = "Extra uitleg helpt andere bezoekers om je rating beter te begrijpen."
-
-    textArea.previousElementSibling.appendChild(error);
-    error.appendChild(explainError);
-  }
-});
