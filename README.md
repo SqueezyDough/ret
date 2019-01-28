@@ -1,5 +1,7 @@
 # ret
 
+// CODE MET UITLEG
+
 const btnOlder = document.querySelector('main ul li:first-child >div>div>button:first-child');
 const btnNewest = document.querySelector('main ul li:first-child  >div>div>button:last-child');
 const btnGroup = document.querySelector('main ul li:first-child >div>div');
