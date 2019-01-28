@@ -6,6 +6,8 @@
 
 html{
   height: 100%;
+
+
 }
 
 body{
@@ -501,7 +503,7 @@ main>ul{
 } 
 
 // history
->section:first-of-type{
+body>section:first-of-type{
   margin-top: 1em;
   z-index: 2;
 
@@ -514,7 +516,7 @@ main>ul{
 }
 
 // veelbesproken
->section:nth-of-type(2){
+body>section:nth-of-type(2){
   h2{
     color: #00477f;
     font-size: 1.5em;
@@ -527,14 +529,6 @@ main>ul{
   ol{
     margin: 0;
     padding: 0;
-
-    li{
-      ol{      
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-      }
-    } 
   } 
 }
 

@@ -560,41 +560,31 @@ main > ul > li:last-child article:last-child {
   margin-right: 1em;
 }
 
-> section:first-of-type {
+body > section:first-of-type {
   margin-top: 1em;
   z-index: 2;
 }
 
-> section:first-of-type h2 {
+body > section:first-of-type h2 {
   font-size: 1.5em;
 }
 
-> section:first-of-type h2::after {
+body > section:first-of-type h2::after {
   border-bottom: 2px #DB3738 solid;
 }
 
-> section:nth-of-type(2) h2 {
+body > section:nth-of-type(2) h2 {
   color: #00477f;
   font-size: 1.5em;
 }
 
-> section:nth-of-type(2) h2::after {
+body > section:nth-of-type(2) h2::after {
   border-bottom: 2px #DB3738 solid;
 }
 
-> section:nth-of-type(2) ol {
+body > section:nth-of-type(2) ol {
   margin: 0;
   padding: 0;
-}
-
-> section:nth-of-type(2) ol li ol {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
 }
 
 .nav-up {
