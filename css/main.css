@@ -587,14 +587,6 @@ body > section:nth-of-type(2) ol {
   padding: 0;
 }
 
-.nav-up {
-  top: -50px !important;
-}
-
-.list-styled {
-  list-style-image: url("../images/icons/arrow.svg");
-}
-
 article.tile {
   position: relative;
   background-color: white;
