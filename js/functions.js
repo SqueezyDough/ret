@@ -88,6 +88,7 @@ if(window.location.pathname == ('/story-code.html') || window.location.pathname 
       }
     });
 
+    // recount all reviews and update number
     countReviews();
   }
 
@@ -144,6 +145,7 @@ if(window.location.pathname == ('/story-code.html') || window.location.pathname 
     var rating = reviewForm.querySelector('input:checked');
     var textArea = reviewForm.querySelector('textarea');
 
+    // check if form is valid
     if(textArea.validity.valid && rating != null){ 
       var formSection = document.createElement('section');
       formSection.classList.add('form');
@@ -183,6 +185,7 @@ if(window.location.pathname == ('/story-code.html') || window.location.pathname 
       article.appendChild(small);
       small.appendChild(list);
 
+      // display correct amount of stars
       for (var i = 0; i < ratingValue; i++){
         var listItem = document.createElement('li');
         list.appendChild(listItem);
@@ -212,8 +215,10 @@ if(window.location.pathname == ('/story-code.html') || window.location.pathname 
 
       article.append(body);
 
+      // recount reviews
       countReviews();
     }
+    // display error message
     else if(!textArea.validity.valid){
       textArea.focus();
 
