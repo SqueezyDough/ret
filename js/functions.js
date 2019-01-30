@@ -310,7 +310,7 @@ setInterval(function(){
      
       // check if article is shown
       if (review.classList.contains('show-review')){
-        visibleitemFound = true;
+        visibleItemFound = true;
 
         // hide this one
         review.classList.remove('show-review');
@@ -327,7 +327,7 @@ setInterval(function(){
       }
       
       // if no review is shown currently due to a mistake in html, show first review
-      if (visibleitemFound == false){
+      if (visibleItemFound == false){
         nextReview = review.parentElement.querySelector('article:first-of-type');
         visibleitemFound = false
       }
