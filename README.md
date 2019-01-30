@@ -1,6 +1,24 @@
 # ret
 
-// CODE MET UITLEG
+// FUNCTIONALITEITEN
+vanaf r.33:
+Code kraken
+Van elke letter wordt apart een span gemaakt, zodat ik, nadat alle keys verkregen zijn, alle letters kan weghalen behalve de                         eerste. Je moet op de letters 'O', 'D', 'E' klikken om de keys te verkrijgen. Op de 'C' klikken reset de boel. in het verhaal moet je de eerste letter lezen om het 'echte' verhaal te lezen. Dit is de interactie ervoor om 'm makkelijker te kraken.
+
+vanaf r.152
+Form validatie en review toevoegen aan reviews
+
+vanar r318.
+reviews tonen
+Om de 6 seconden wordt een nieuwe review getoond met een random delay, zodat ze als een golf getoond worden. 
+Code is gemaakt zodat het ook werkt als je vergeet om de class toe te voegen aan je html, de class op alle elementen toevoegd of op een deel van alle elementen. De code lost dit meteen op.
+
+Andere code is voor kleine microinteracties.
+Sommige delen van de code kunnen alleen op een bepaalde pagina worden uitgevoerd.
+
+
+
+// CODE MET INLINE UITLEG
 
 const btnOlder = document.querySelector('main ul li:first-child >div>div>button:first-child');
 const btnNewest = document.querySelector('main ul li:first-child  >div>div>button:last-child');
