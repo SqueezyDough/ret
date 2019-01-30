@@ -297,6 +297,8 @@ setInterval(function(){
   // for every article...
   for (var i = 0; i < reviewsContainer.length; i++){
     var nextReview;
+    var visibleitemFound = false;
+    
     var delaysInSeconds = ['.2s', '.3s', '.4s', '.5s', '.6s','.7s', '.8s', '.9s', '1s'];
 
     // scope single review p's
@@ -304,10 +306,11 @@ setInterval(function(){
     
     // for every review (p) in article...
     for(var x = 0; x < reviews.length; x++){
-      review = reviews[x]; 
-
+      var review = reviews[x]; 
+     
       // check if article is shown
       if (review.classList.contains('show-review')){
+        visibleitemFound = true;
 
         // hide this one
         review.classList.remove('show-review');
@@ -322,11 +325,13 @@ setInterval(function(){
           nextReview = review.parentElement.querySelector('article:first-of-type');
         }   
       }
-      // if no review is shown currently due to a mistake in html, show current review
-      else {
-        nextReview = review;
-      }    
-    } 
+      
+      // if no review is shown currently due to a mistake in html, show first review
+      if (visibleitemFound == false){
+        nextReview = review.parentElement.querySelector('article:first-of-type');
+        visibleitemFound = false
+      }
+    }  
 
     // display reviews with random delays
     delayOptions = delaysInSeconds.length-1;
