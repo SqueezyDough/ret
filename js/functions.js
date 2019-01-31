@@ -329,7 +329,6 @@ setInterval(function(){
       // if no review is shown currently due to a mistake in html, show first review
       if (visibleItemFound == false){
         nextReview = review.parentElement.querySelector('article:first-of-type');
-        visibleitemFound = false
       }
     }  
 
